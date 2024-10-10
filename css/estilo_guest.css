@@ -16,6 +16,11 @@ section {
 
 h2 {
   font-size: 2.2vw;
+  border: 4px solid #233431;
+  border-right: none;
+  border-top: none;
+  border-radius: 25px;
+  padding: 0.5vw;
 }
 
 header {
@@ -45,12 +50,16 @@ header {
   background-color: #8BCCC1;
 }
 
+.guest_h2_nosso_trabalho {
+  width: 16vw;
+}
+
 .guest_nosso_trabalho {
-  margin-top: 5vh;
+  margin-top: 3.2vw;
   display: grid;
   grid-template-rows: 1fr 80%;
   width: auto;
-  height: 30vh;
+  height: 19.5vw;
   align-items: center;
   justify-content: left;
 }
@@ -59,8 +68,8 @@ header {
   border-radius: 25px;
   display: flex;
   align-items: center;
-  width: 60%;
-  height: 80%;
+  width: 54.2vw;
+  height: 13.1vw;
   background-color: #233431;
 }
 
@@ -68,10 +77,14 @@ header {
   margin: 2vw;
 }
 
+.guest_h2_obras_destaque {
+  width: 21vw;
+}
+
 .guest_obras_destaque {
-  margin-top: 5vh;
+  margin-top: 3.6vw;
   display: grid;
-  grid-template-rows: 7.5vh 1fr 18vh;
+  grid-template-rows: 5vw 31vw 11.4vw;
   width: auto;
   justify-content: center;
   align-items: center;
@@ -85,14 +98,13 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 90vw;
-  height: auto;
+  height: 45.5vw;
   gap: 3vw;
   text-align: center;
 }
 
 .guest_obra {
   display: flex;
-  height: 70vh;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -100,8 +112,8 @@ header {
 
 .guest_obra img {
   display: flex;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 31vw;
+  max-height: 31vw;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
@@ -122,15 +134,19 @@ header {
   margin: 2vw;
 }
 
+.guest_h2_sobre {
+  width: 25vw;
+}
+
 .guest_sobre {
-  margin-top: 5vh;
+  margin-top: 3.2vw;
   display: grid;
-  grid-template-rows: 9vh 1fr 18vh;
+  grid-template-rows: 5.8vw 1fr 11.6vw;
 }
 
 .guest_daventi {
   display: grid;
-  grid-template-columns: 20% 1fr;
+  grid-template-columns: 19vw 1fr;
   gap: 4.5vw;
   align-items: center;
 }
@@ -146,24 +162,28 @@ header {
   height: 100%;
   background-color: #233431;
   border-radius: 25px;
-  padding: 50px;
+  padding: 3.5vw;
   align-items: center;
 }
 
 .guest_frase {
   display: flex;
   background-color: #233431;
-  margin: 4% 0% 2% 0%;
+  margin: 3.6vw 0% 1.8vw 0%;
   height: 5vw;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
 }
 
+.guest_h2_fundamentos {
+  width: 22vw;
+}
+
 .guest_fundamentos {
-  margin-top: 7.5vh;
+  margin-top: 4.9vw;
   display: grid;
-  grid-template-rows: 9vh 1fr;
+  grid-template-rows: 5.9vw 1fr;
 }
 
 .guest_cards_fundamentos {
@@ -195,7 +215,7 @@ header {
 }
 
 .guest_foto {
-  height: 17vw;
+  height: 100%;
 }
 
 .guest_mvv .guest_foto img {
@@ -207,7 +227,7 @@ header {
 
 .guest_mvv_desc {
   display: grid;
-  grid-template-rows: 6vh 1fr;
+  grid-template-rows: 4vw 1fr;
   margin-left: 4vw;
 }
 
@@ -223,14 +243,18 @@ header {
 .guest_mvv_desc .guest_desc {
   background-color: #233431;
   border-radius: 25px;
-  margin-top: 3vh;
+  margin-top: 2vw;
   padding: 2vw;
 }
 
+.guest_h2_equipe {
+  width: 20vw;
+}
+
 .guest_equipe {
-  margin-top: 7.5vh;
+  margin-top: 4.9vw;
   display: grid;
-  grid-template-rows: 9vh 1fr;
+  grid-template-rows: 5.9vw 1fr;
 }
 
 .guest_cards {
@@ -243,7 +267,7 @@ header {
 
 .guest_card {
   display: grid;
-  grid-template-rows: 5vh 20vw 1fr;
+  grid-template-rows: 3.2vw 20vw 1fr;
 }
 
 .guest_card .guest_nome {
@@ -255,7 +279,7 @@ header {
   border-bottom-right-radius: 0px;
   display: flex;
   justify-content: left;
-  padding-top: 1.2vh;
+  padding-top: 0.8vw;
   text-indent: 1vw;
   font-size: 24px;
 }
@@ -269,7 +293,7 @@ header {
 }
 
 .guest_card .guest_texto {
-  margin-top: 5vh;
+  margin-top: 3.2vw;
   background-color: #233431;
   border-radius: 25px;
   padding: 2.4vw;
