@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #6DA097;
   color: gray;
@@ -5,13 +9,7 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
-content {
-  position: absolute;
-  top: 100%;
-}
-
 section {
-  margin-top: 2vw;
   margin-left: 4.7vw;
   margin-right: 4.7vw;
 }
@@ -21,6 +19,7 @@ h2 {
 }
 
 header {
+  visibility: hidden;
   position: fixed;
   top: 0%;
   left: 0%;
@@ -30,23 +29,28 @@ header {
 }
 
 .guest_img_fundo {
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  height: 90%;
+  display: grid;
+  grid-template-rows: auto;
+  background-color: red;
+  height: 100vh;
+}
+
+.vazio {
+  height: 10vh;
 }
 
 .guest_img_fundo img {
   width: 100%;
-  height: 100%;
+  height: 90vh;
   background-color: #8BCCC1;
 }
 
 .guest_nosso_trabalho {
+  margin-top: 5vh;
   display: grid;
   grid-template-rows: 1fr 80%;
   width: auto;
-  height: 15vw;
+  height: 30vh;
   align-items: center;
   justify-content: left;
 }
@@ -65,32 +69,208 @@ header {
 }
 
 .guest_obras_destaque {
+  margin-top: 5vh;
   display: grid;
-  grid-template-rows: 7% 1fr 15%;
-  width: 1000px;
-  height: 50vw;
-  justify-content: left;
+  grid-template-rows: 7.5vh 1fr 18vh;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.guest_obras_destaque h2 {
+  margin-top: -2.5%;
 }
 
 .guest_obras {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 90vw;
+  height: auto;
+  gap: 3vw;
+  text-align: center;
 }
 
 .guest_obra {
-  margin: 10%;
-  width: 80%;
-  height: 80%;
-  background-color: #233431;
+  display: flex;
+  height: 70vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest_obra img {
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  border: 5px solid #233431;
 }
 
 .guest_cta {
   height: 5vw;
-  width: 100%;
+  width: 45%;
   border-radius: 25px;
   background-color: #233431;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .guest_cta p {
   margin: 2vw;
+}
+
+.guest_sobre {
+  margin-top: 5vh;
+  display: grid;
+  grid-template-rows: 9vh 1fr 18vh;
+}
+
+.guest_daventi {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  gap: 4.5vw;
+  align-items: center;
+}
+
+.guest_daventi img {
+  border: 5px solid #233431;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
+}
+
+.guest_daventi .guest_texto {
+  height: 100%;
+  background-color: #233431;
+  border-radius: 25px;
+  padding: 50px;
+  align-items: center;
+}
+
+.guest_frase {
+  display: flex;
+  background-color: #233431;
+  margin: 4% 0% 2% 0%;
+  height: 5vw;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}
+
+.guest_fundamentos {
+  margin-top: 7.5vh;
+  display: grid;
+  grid-template-rows: 9vh 1fr;
+}
+
+.guest_cards_fundamentos {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 2vw;
+}
+
+.guest_mvv {
+  display: grid;
+  grid-template-columns: 18vw 1fr;
+}
+
+.guest_mvv_mid {
+  display: grid;
+  grid-template-columns: 1fr 18vw;
+}
+
+.guest_mvv_mid .guest_mvv_desc {
+  margin-left: 0px;
+  margin-right: 4vw;
+}
+
+.guest_mvv_mid .guest_foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  border: 4px solid #233431;
+}
+
+.guest_foto {
+  height: 17vw;
+}
+
+.guest_mvv .guest_foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  border: 4px solid #233431;
+}
+
+.guest_mvv_desc {
+  display: grid;
+  grid-template-rows: 6vh 1fr;
+  margin-left: 4vw;
+}
+
+.guest_mvv_desc .guest_nome {
+  background-color: #233431;
+  border-radius: 25px;
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guest_mvv_desc .guest_desc {
+  background-color: #233431;
+  border-radius: 25px;
+  margin-top: 3vh;
+  padding: 2vw;
+}
+
+.guest_equipe {
+  margin-top: 7.5vh;
+  display: grid;
+  grid-template-rows: 9vh 1fr;
+}
+
+.guest_cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.guest_card {
+  display: grid;
+  grid-template-rows: 5vh 20vw 1fr;
+}
+
+.guest_card .guest_nome {
+  background-color: #233431;
+  width: 75%;
+  border: #233431;
+  border-radius: 15px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  display: flex;
+  justify-content: left;
+  padding-top: 1.2vh;
+  text-indent: 1vw;
+  font-size: 24px;
+}
+
+.guest_icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  border: 5px solid #233431;
+  border-top-left-radius: 0px;
+}
+
+.guest_card .guest_texto {
+  margin-top: 5vh;
+  background-color: #233431;
+  border-radius: 25px;
+  padding: 2.4vw;
 }/*# sourceMappingURL=estilo_guest.css.map */
