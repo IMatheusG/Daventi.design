@@ -2,11 +2,29 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Official_Book";
+  src: url(../fonts/Official/OfficialBook.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal, sans-serif;
+}
+@font-face {
+  font-family: "Cocogoose";
+  src: url(../fonts/cocogoose_light/Cocogoose_Light/Cocogoose_Pro_Light-trial.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal, sans-serif;
+}
+@font-face {
+  font-family: "Muthiara";
+  src: url(../fonts/muthiara/Muthiara\ demo\ version.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal, sans-serif;
+}
 body {
   background-color: #6DA097;
   color: gray;
-  font-size: 1.4vw;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 1.6vw;
+  font-family: "Official_Book";
 }
 
 section {
@@ -15,7 +33,8 @@ section {
 }
 
 h2 {
-  font-size: 2.2vw;
+  font-family: "Cocogoose";
+  font-size: 1.65vw;
   border: 4px solid #233431;
   border-right: none;
   border-top: none;
@@ -24,34 +43,136 @@ h2 {
 }
 
 header {
-  visibility: hidden;
   position: fixed;
   top: 0%;
   left: 0%;
-  background-color: #233431;
-  width: 100%;
-  height: 10%;
+  width: 100vw;
+  height: 10.9vw;
+  background-image: url(../src/nuvem_header.png);
+  filter: drop-shadow(0 10px 15px rgb(0, 0, 0));
+  background-size: 100% 100%;
+}
+
+header h1 {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vw;
+  width: 17vw;
+  height: 50%;
+  font-family: "Muthiara", sans-serif;
+  justify-content: center;
+  align-items: center;
+  font-size: 4vw;
+}
+
+@keyframes slideIn {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100vh;
+    opacity: 1;
+  }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100vw;
+  }
+}
+@keyframes slideOff {
+  0% {
+    height: 100vh;
+    opacity: 1;
+  }
+  100% {
+    height: vh;
+    opacity: 0;
+  }
+  0% {
+    width: 100vw;
+  }
+  100% {
+    width: 0vw;
+  }
+}
+#guest_menu {
+  width: 4vw;
+  height: 4.5vw;
+  margin-left: 92.5vw;
+  margin-top: -4.5vw;
+}
+
+#guest_menu_aberto {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  height: 0px;
+  background-color: #6DA097;
+  display: grid;
+  grid-template-rows: 6vw repeat(5, 1fr);
+  text-align: center;
+}
+
+#guest_fechar_menu {
+  display: flex;
+  font-size: 10vw;
+  justify-content: center;
+  align-items: center;
+}
+
+#guest_fechar_menu p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75%;
+  width: 5vw;
+  border-radius: 25px;
+  padding: 3vw;
+}
+
+#guest_fechar_menu p:hover {
+  background-color: #8BCCC1;
+  border-radius: 25px;
+}
+
+.guest_op_menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest_op_menu h2 {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.8vw;
+  width: 25vw;
+  border-bottom: 2px solid #233431;
+}
+
+.guest_op_menu h2:hover {
+  background-color: #8BCCC1;
 }
 
 .guest_img_fundo {
   display: grid;
-  grid-template-rows: auto;
-  background-color: red;
-  height: 100vh;
-}
-
-.vazio {
-  height: 10vh;
+  grid-template-rows: 95.3vh;
+  height: 100%;
+  margin-top: 4vw;
 }
 
 .guest_img_fundo img {
   width: 100%;
-  height: 90vh;
+  height: 100%;
   background-color: #8BCCC1;
 }
 
 .guest_h2_nosso_trabalho {
   width: 16vw;
+  text-indent: 0.3vw;
 }
 
 .guest_nosso_trabalho {
@@ -79,6 +200,7 @@ header {
 
 .guest_h2_obras_destaque {
   width: 21vw;
+  text-indent: 0.3vw;
 }
 
 .guest_obras_destaque {
@@ -136,6 +258,7 @@ header {
 
 .guest_h2_sobre {
   width: 25vw;
+  text-indent: 0.3vw;
 }
 
 .guest_sobre {
@@ -178,6 +301,7 @@ header {
 
 .guest_h2_fundamentos {
   width: 22vw;
+  text-indent: 0.3vw;
 }
 
 .guest_fundamentos {
@@ -249,6 +373,7 @@ header {
 
 .guest_h2_equipe {
   width: 20vw;
+  text-indent: 0.3vw;
 }
 
 .guest_equipe {
@@ -281,7 +406,7 @@ header {
   justify-content: left;
   padding-top: 0.8vw;
   text-indent: 1vw;
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 .guest_icon img {

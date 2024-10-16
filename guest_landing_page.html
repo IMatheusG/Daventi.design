@@ -9,9 +9,6 @@
     </head>
     <body>        
         <div class="guest_img_fundo">
-            <div class="vazio">
-                
-            </div>
             <img src="./src/gato_apenas.jpg">
         </div>
         <main>            
@@ -175,12 +172,60 @@
             
         </main>
         <header>
-            <div class="guest_menu">
-                asd
-            </div>
+            <div class="guest_conteudo_header">
+                <h1>
+                    Daventi
+                </h1>
+                <div id="guest_menu" onclick="abrirMenu()">
+                    <img src="./src/menu_icon.png" width="100%" height="100%" >
+                </div>
+                <div id="guest_menu_aberto">
+                    <div id="guest_fechar_menu">
+                        <p onclick="fecharMenu()">
+                            x
+                        </p>
+                    </div>
+                    <div class="guest_op_menu"> 
+                        <h2>
+                            Nosso trabalho
+                        </h2>                    
+                    </div>
+                    <div class="guest_op_menu">
+                        <h2>
+                            Obras em destaque
+                        </h2>                    
+                    </div>
+                    <div class="guest_op_menu">
+                        <h2>
+                            Sobre a Daventi
+                        </h2>
+                    </div>
+                    <div class="guest_op_menu">
+                        <h2>
+                            Nossos fundamentos
+                        </h2>
+                    </div>
+                    <div class="guest_op_menu">
+                        <h2>
+                            Conheça a equipe
+                        </h2>
+                    </div>
+                </div>
+            </div>            
         </header>
         <footer>
-            a
+            <div class="opcoes">
+                <div class="redes">
+
+                </div>
+                <div class="navegacao">
+                    
+                </div>
+            </div>
+            <div class="copyright">
+
+            </div>
         </footer>
+        <script src="./js/guest_menu.js"></script>
     </body>
 </html>
