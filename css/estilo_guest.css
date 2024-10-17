@@ -282,6 +282,10 @@ h1:hover {
   margin: 2vw;
 }
 
+.guest_cta:hover {
+  background-color: #8BCCC1;
+}
+
 .guest_h2_sobre {
   width: 25vw;
   text-indent: 0.3vw;
