@@ -451,19 +451,19 @@ h1:hover {
 }
 
 footer {
-  background-image: url(../src/nuvem_footer.png);
+  background-image: url(../src/nuvem_footer_3.png);
   background-size: 100% 100%;
   width: 100%;
   height: auto;
   margin: 0;
   margin-top: 3.6vw;
   display: grid;
-  grid-template-rows: 16vw 15.7vw 1fr;
+  grid-template-rows: 8vw 15.7vw 1fr;
 }
 
 .opcoes {
   display: grid;
-  grid-template-columns: 40vw 1fr;
+  grid-template-columns: 20vw 1fr 1fr 20vw;
 }
 
 .redes {
@@ -480,6 +480,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1vw;
 }
 
 .redes_imgs img {
@@ -491,8 +492,21 @@ footer {
 .copyright {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 3vw;
+  align-items: end;
+  margin-top: 4vw;
+  margin-bottom: 2vw;
+}
+
+.opcoes .navegacao {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: justify;
+}
+
+.navegacao h2 {
+  border: none;
+  padding: 0;
+  padding-bottom: 1vw;
 }
 
 .opcoes ul {
