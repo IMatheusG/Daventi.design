@@ -42,28 +42,38 @@ h2 {
   padding: 0.5vw;
 }
 
+a {
+  text-decoration: none;
+  color: gray;
+}
+
 header {
   position: fixed;
   top: 0%;
   left: 0%;
   width: 100vw;
-  height: 10.9vw;
+  height: 9vw;
   background-image: url(../src/nuvem_header.png);
   filter: drop-shadow(0 10px 15px rgb(0, 0, 0));
   background-size: 100% 100%;
 }
 
 header h1 {
+  border-radius: 25px;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2vw;
+  margin-top: 1.5vw;
   width: 17vw;
   height: 50%;
   font-family: "Muthiara", sans-serif;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 3.5vw;
+}
+
+header h1:hover {
+  color: #8BCCC1;
 }
 
 @keyframes slideIn {
@@ -157,6 +167,22 @@ header h1 {
   background-color: #8BCCC1;
 }
 
+.guest_link {
+  margin-top: -20vw;
+}
+
+.guest_sobre .guest_link {
+  margin-top: -10vw;
+}
+
+.guest_fundamentos .guest_link {
+  margin-top: -10vw;
+}
+
+.guest_equipe .guest_link {
+  margin-top: -10vw;
+}
+
 .guest_img_fundo {
   display: grid;
   grid-template-rows: 95.3vh;
@@ -178,7 +204,7 @@ header h1 {
 .guest_nosso_trabalho {
   margin-top: 3.2vw;
   display: grid;
-  grid-template-rows: 1fr 80%;
+  grid-template-rows: 0.1vw 1fr 80%;
   width: auto;
   height: 19.5vw;
   align-items: center;
@@ -206,7 +232,7 @@ header h1 {
 .guest_obras_destaque {
   margin-top: 3.6vw;
   display: grid;
-  grid-template-rows: 5vw 31vw 11.4vw;
+  grid-template-rows: 0.01vw 5vw 31vw 11.4vw;
   width: auto;
   justify-content: center;
   align-items: center;
@@ -264,7 +290,7 @@ header h1 {
 .guest_sobre {
   margin-top: 3.2vw;
   display: grid;
-  grid-template-rows: 5.8vw 1fr 11.6vw;
+  grid-template-rows: 0.1vw 5.8vw 1fr 11.6vw;
 }
 
 .guest_daventi {
@@ -307,7 +333,7 @@ header h1 {
 .guest_fundamentos {
   margin-top: 4.9vw;
   display: grid;
-  grid-template-rows: 5.9vw 1fr;
+  grid-template-rows: 0.1vw 5.9vw 1fr;
 }
 
 .guest_cards_fundamentos {
@@ -379,7 +405,7 @@ header h1 {
 .guest_equipe {
   margin-top: 4.9vw;
   display: grid;
-  grid-template-rows: 5.9vw 1fr;
+  grid-template-rows: 0.1vw 5.9vw 1fr;
 }
 
 .guest_cards {

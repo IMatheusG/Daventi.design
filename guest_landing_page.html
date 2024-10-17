@@ -13,6 +13,9 @@
         </div>
         <main>            
             <section class="guest_nosso_trabalho">
+                <div id="guest_nosso_trabalho" class="guest_link">
+                    
+                </div>
                 <div>
                     <h2 class="guest_h2_nosso_trabalho">
                         Nosso trabalho
@@ -25,6 +28,9 @@
                 </div>
             </section>
             <section class="guest_obras_destaque">
+                <div id="guest_obras_destaque" class="guest_link">
+                    
+                </div>
                 <div>
                     <h2 class="guest_h2_obras_destaque">
                         Obras em destaque
@@ -48,6 +54,9 @@
                 </div>
             </section>
             <section class="guest_sobre">
+                <div id="guest_sobre" class="guest_link">
+                    
+                </div>
                 <div>
                     <h2 class="guest_h2_sobre">
                         Sobre a Daventi Design
@@ -67,6 +76,9 @@
             </section>
 
             <section class="guest_fundamentos">
+                <div id="guest_fundamentos" class="guest_link">
+                    
+                </div>
                 <div>
                     <h2 class="guest_h2_fundamentos">
                         Nossos fundamentos
@@ -125,6 +137,9 @@
             </section>
 
             <section class="guest_equipe">
+                <div id="guest_equipe" class="guest_link">
+                    
+                </div>
                 <div>
                     <h2 class="guest_h2_equipe"> 
                         Conheça a equipe
@@ -172,46 +187,54 @@
             
         </main>
         <header>
-            <div class="guest_conteudo_header">
-                <h1>
-                    Daventi
-                </h1>
-                <div id="guest_menu" onclick="abrirMenu()">
-                    <img src="./src/menu_icon.png" width="100%" height="100%" >
+            <h1>
+                Daventi
+            </h1>
+            <div id="guest_menu" onclick="abrirMenu()">
+                <img src="./src/menu_icon.png" width="100%" height="100%" >
+            </div>
+            <div id="guest_menu_aberto">
+                <div id="guest_fechar_menu">
+                    <p onclick="fecharMenu()">
+                        x
+                    </p>
                 </div>
-                <div id="guest_menu_aberto">
-                    <div id="guest_fechar_menu">
-                        <p onclick="fecharMenu()">
-                            x
-                        </p>
-                    </div>
-                    <div class="guest_op_menu"> 
+                <div class="guest_op_menu"> 
+                    <a href="#guest_nosso_trabalho" onclick="fecharMenu()">
                         <h2>
                             Nosso trabalho
-                        </h2>                    
-                    </div>
-                    <div class="guest_op_menu">
+                        </h2>      
+                    </a>              
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_obras_destaque" onclick="fecharMenu()">
                         <h2>
                             Obras em destaque
-                        </h2>                    
-                    </div>
-                    <div class="guest_op_menu">
+                        </h2>      
+                    </a>                      
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_sobre" onclick="fecharMenu()">
                         <h2>
-                            Sobre a Daventi
-                        </h2>
-                    </div>
-                    <div class="guest_op_menu">
+                            Sobre a Daventi Design 
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_fundamentos" onclick="fecharMenu()">
                         <h2>
                             Nossos fundamentos
-                        </h2>
-                    </div>
-                    <div class="guest_op_menu">
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_equipe" onclick="fecharMenu()">
                         <h2>
                             Conheça a equipe
-                        </h2>
-                    </div>
+                        </h2>      
+                    </a>  
                 </div>
-            </div>            
+            </div>
         </header>
         <footer>
             <div class="opcoes">
