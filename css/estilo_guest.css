@@ -22,7 +22,7 @@
 }
 body {
   background-color: #6DA097;
-  color: gray;
+  color: rgba(255, 255, 255, 0.7882352941);
   font-size: 1.6vw;
   font-family: "Official_Book";
 }
@@ -44,7 +44,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: gray;
+  color: rgba(255, 255, 255, 0.7882352941);
 }
 
 header {
@@ -122,7 +122,7 @@ h1:hover {
   height: 0px;
   background-color: #6DA097;
   display: grid;
-  grid-template-rows: 6vw repeat(5, 1fr);
+  grid-template-rows: 6vw repeat(6, 1fr);
   text-align: center;
 }
 
@@ -137,10 +137,12 @@ h1:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1vw;
   height: 75%;
   width: 5vw;
   border-radius: 25px;
   padding: 3vw;
+  cursor: pointer;
 }
 
 #guest_fechar_menu p:hover {
@@ -169,6 +171,7 @@ h1:hover {
 
 .guest_link {
   margin-top: -20vw;
+  visibility: hidden;
 }
 
 .guest_sobre .guest_link {
@@ -268,7 +271,7 @@ h1:hover {
   border: 5px solid #233431;
 }
 
-.guest_cta {
+.guest_obras_destaque a {
   height: 5vw;
   width: 45%;
   border-radius: 25px;
@@ -282,7 +285,11 @@ h1:hover {
   margin: 2vw;
 }
 
-.guest_cta:hover {
+.guest_obras_destaque a:hover {
+  background-color: #8BCCC1;
+}
+
+.guest_cta p:hover {
   background-color: #8BCCC1;
 }
 
@@ -491,6 +498,7 @@ footer {
   width: 4vw;
   height: 4vw;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .copyright {
@@ -515,4 +523,8 @@ footer {
 
 .opcoes ul {
   padding: 0.4vw;
+}
+
+ul a {
+  text-decoration: underline;
 }/*# sourceMappingURL=estilo_guest.css.map */
