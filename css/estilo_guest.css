@@ -58,7 +58,7 @@ header {
   background-size: 100% 100%;
 }
 
-header h1 {
+h1 {
   border-radius: 25px;
   display: flex;
   margin-left: auto;
@@ -72,7 +72,7 @@ header h1 {
   font-size: 3.5vw;
 }
 
-header h1:hover {
+h1:hover {
   color: #8BCCC1;
 }
 
@@ -448,4 +448,53 @@ header h1:hover {
   background-color: #233431;
   border-radius: 25px;
   padding: 2.4vw;
+}
+
+footer {
+  background-image: url(../src/nuvem_footer.png);
+  background-size: 100% 100%;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  margin-top: 3.6vw;
+  display: grid;
+  grid-template-rows: 16vw 15.7vw 1fr;
+}
+
+.opcoes {
+  display: grid;
+  grid-template-columns: 40vw 1fr;
+}
+
+.redes {
+  display: grid;
+  grid-template-rows: auto;
+  text-align: center;
+}
+
+.redes p {
+  padding: 1vw;
+}
+
+.redes_imgs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.redes_imgs img {
+  width: 4vw;
+  height: 4vw;
+  border-radius: 25px;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3vw;
+}
+
+.opcoes ul {
+  padding: 0.4vw;
 }/*# sourceMappingURL=estilo_guest.css.map */
