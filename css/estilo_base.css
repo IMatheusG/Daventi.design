@@ -27,7 +27,7 @@ body {
   font-family: "Official_Book";
 }
 
-section {
+section, main {
   margin-left: 4.7vw;
   margin-right: 4.7vw;
 }
