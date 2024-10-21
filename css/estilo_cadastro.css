@@ -50,6 +50,12 @@ main {
   border-left: 0.4vw solid #8BCCC1;
 }
 
+.cadastro_voltar p:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
 h2 {
   width: 52vw;
   padding: 0.7vw;
@@ -85,7 +91,12 @@ input {
 }
 
 input[type=submit] {
+  cursor: pointer;
   width: 10vw;
+  background-color: #233431;
+  border: 0;
+  border-bottom: 0.4vw solid #8BCCC1;
+  border-left: 0.4vw solid #8BCCC1;
 }
 
 .cadastro_lado_direito {

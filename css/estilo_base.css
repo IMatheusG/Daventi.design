@@ -235,4 +235,16 @@ footer {
 
 ul a {
   text-decoration: underline;
+}
+
+input:hover {
+  border: 0.3vw solid #8BCCC1;
+  border-bottom: 0.6vw solid #8BCCC1;
+  border-left: 0.6vw solid #8BCCC1;
+}
+
+input[type=submit]:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
 }/*# sourceMappingURL=estilo_base.css.map */
