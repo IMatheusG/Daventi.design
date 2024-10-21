@@ -23,10 +23,10 @@ main {
 }
 
 .login_divisa {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 60.7vw;
-  height: 100vh;
+  height: 100%;
   width: 0.2vw;
   background-color: #233431;
 }

@@ -11,12 +11,7 @@
     <body>
         <div class="login_divisa">
               
-        </div>
-        <header>
-            <h1>
-                Daventi
-            </h1>
-        </header>
+        </div>        
         <main>
             <div class="cadastro_lado_esquerdo">
                 <div class="cadastro_voltar">
@@ -91,6 +86,11 @@
                 © Um projeto do grupo Daventi 2024
             </div>
         </footer>
+        <header>
+            <h1>
+                Daventi
+            </h1>
+        </header>
     </body>
     <script>
         window.onload = function(){
@@ -98,9 +98,13 @@
             if (parametros.has('status')){
                 const status = parametros.get('status');
                 if (status === '0'){
-                    alert('Erro no cadastro');
-                    header('Location: cadastro.php');
+                    alert('Preencha todos os campos para realizar o cadastro');
+                }                 
+                if (status === '2'){
+                    alert('Email já cadastrado');
                 }
+                const newUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
             }
         }
     </script>

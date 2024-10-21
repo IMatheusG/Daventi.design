@@ -108,6 +108,11 @@ h1:hover {
   height: 4.5vw;
   margin-left: 92.5vw;
   margin-top: -4.5vw;
+  opacity: 0.8;
+}
+
+#guest_menu:hover {
+  opacity: 1;
 }
 
 #guest_menu_aberto {

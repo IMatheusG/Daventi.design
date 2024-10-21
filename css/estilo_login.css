@@ -31,6 +31,12 @@ main {
   border-left: 0.4vw solid #8BCCC1;
 }
 
+.login_voltar p:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
 .login_lado_cadastro {
   display: grid;
   grid-template-rows: 8vw 1fr;
@@ -60,6 +66,12 @@ main {
   padding: 1.5vw;
   text-align: center;
   height: 11vw;
+}
+
+.login_cta_cadastro .login_cta_cadastro_btn p:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
 }
 
 .login_cta_cadastro_btn p {
@@ -131,19 +143,26 @@ input {
   justify-content: center;
 }
 
-.login_login_btn p {
-  padding: 1.3vw;
+input[type=submit] {
+  cursor: pointer;
+  width: 10vw;
   background-color: #233431;
-  border-radius: 25px;
+  border: 0;
   border-bottom: 0.4vw solid #8BCCC1;
   border-left: 0.4vw solid #8BCCC1;
 }
 
+.login_login_btn input[type=submit]:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
 .login_divisa {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 44.6vw;
-  height: 100vh;
+  height: 100%;
   width: 0.2vw;
   background-color: #233431;
 }

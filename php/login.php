@@ -12,11 +12,6 @@
         <div class="login_divisa">
               
         </div>
-        <header>
-            <h1>
-                Daventi
-            </h1>
-        </header>
         <main>
             <div class="login_lado_cadastro">
                 <div class="login_voltar">
@@ -55,21 +50,17 @@
                         <label for="email"> 
                             Email
                         </label>
-                        <input type="text" id="email">
+                        <input type="text" name="email">
                     </div>
                     <div class="login_input">
                         <label for="senha"> 
                             Senha
                         </label>
-                        <input type="text" id="senha">
+                        <input type="text" name="senha">
                     </div>
                 </div>
                 <div class="login_login_btn">
-                    <a href="">
-                        <p>
-                            Logar
-                        </p>                    
-                    </a>
+                    <input type="submit" value="Logar">
                 </div>
             </form>            
         </main>        
@@ -97,18 +88,24 @@
                 © Um projeto do grupo Daventi 2024
             </div>
         </footer>
-        <script>
-            let aviso = 0;
-
+        <header>
+            <h1>
+                Daventi
+            </h1>
+        </header>
+        <script>            
             window.onload = function(){
                 const parametros = new URLSearchParams(window.location.search);
                 if (parametros.has('status')){                    
                     var status = parametros.get('status');
-                    if (status === '1' && !sessionStorage.getItem('alerta')){
-                        alert('Cadastro realizado com sucesso! Digite seu dados cadastrados para realizar o login'); 
-                        aviso = 1;
-                        sessionStorage.setItem('alerta', 'true');
+                    if (status === '1'){
+                        alert('Cadastro realizado com sucesso! Digite seu dados cadastrados para realizar o login');                     
                     }
+                    if (status === '1'){
+                        alert('Email ou senha incorreto');
+                    }
+                    const newUrl = window.location.origin + window.location.pathname;
+                    window.history.replaceState({}, document.title, newUrl);
                 }
             }
         </script>
