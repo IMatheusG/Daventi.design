@@ -36,7 +36,7 @@
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim saepe voluptatem veniam consequuntur reiciendis doloribus explicabo voluptate. Incidunt fugiat assumenda voluptatibus quia ipsam odit magnam quae error, illo mollitia sint.
                     </p>
                     <div class="login_cta_cadastro_btn">
-                        <a href="./cadastro.html">
+                        <a href="./cadastro.php">
                             <p>
                                 Cadastre-se aqui
                             </p>                            
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="login_lado_login">
+            <form class="login_lado_login" method='POST' action='verificar_login.php'>
                 <div class="titulo">
                     <h2>
                        Junte-se a nós novamente!
@@ -71,7 +71,7 @@
                         </p>                    
                     </a>
                 </div>
-            </div>            
+            </form>            
         </main>        
         <footer>
             <div class="vazio">
@@ -97,5 +97,20 @@
                 © Um projeto do grupo Daventi 2024
             </div>
         </footer>
+        <script>
+            let aviso = 0;
+
+            window.onload = function(){
+                const parametros = new URLSearchParams(window.location.search);
+                if (parametros.has('status')){                    
+                    var status = parametros.get('status');
+                    if (status === '1' && !sessionStorage.getItem('alerta')){
+                        alert('Cadastro realizado com sucesso! Digite seu dados cadastrados para realizar o login'); 
+                        aviso = 1;
+                        sessionStorage.setItem('alerta', 'true');
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
