@@ -29,19 +29,19 @@
                         <label for="nome"> 
                             Nome
                         </label>
-                        <input type="text" name="nome">
+                        <input type="text" name="nome" required>
                     </div>
                     <div class="input">
                         <label for="email"> 
                             Email
                         </label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" required>
                     </div>
                     <div class="input">
                         <label for="senha"> 
                             Senha
                         </label>
-                        <input type="text" name="senha">
+                        <input type="text" name="senha" required>
                     </div>                    
                     <input type="submit" value="Cadastrar">                    
                 </form>

@@ -21,8 +21,10 @@
             header('Location: ../user_portfolio');
         } else {
             // echo 'QM É TU?';
-            header('Location: login.php?status=0');
+            header('Location: login.php?status=2');
         }
+    } else {
+        header('Location: login.php?status=3');
     }
  
 ?>

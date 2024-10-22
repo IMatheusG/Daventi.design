@@ -50,13 +50,13 @@
                         <label for="email"> 
                             Email
                         </label>
-                        <input type="text" name="email">
+                        <input type="email" name="email" required>
                     </div>
                     <div class="login_input">
                         <label for="senha"> 
                             Senha
                         </label>
-                        <input type="text" name="senha">
+                        <input type="text" name="senha" required>
                     </div>
                 </div>
                 <div class="login_login_btn">
@@ -101,8 +101,11 @@
                     if (status === '1'){
                         alert('Cadastro realizado com sucesso! Digite seu dados cadastrados para realizar o login');                     
                     }
-                    if (status === '1'){
+                    if (status === '2'){
                         alert('Email ou senha incorreto');
+                    }
+                    if (status === '3'){
+                        alert('Preencha todos os campos para realizar o login');
                     }
                     const newUrl = window.location.origin + window.location.pathname;
                     window.history.replaceState({}, document.title, newUrl);
