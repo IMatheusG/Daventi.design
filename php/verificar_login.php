@@ -18,7 +18,7 @@
 
         if ($logado_sucesso){
             // echo "Logado";
-            header('Location: ../user_portfolio');
+            header('Location: ../user_home.html');
         } else {
             // echo 'QM É TU?';
             header('Location: login.php?status=2');
