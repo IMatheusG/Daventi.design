@@ -1,0 +1,384 @@
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7882352941);
+}
+
+.opcoes .redes {
+  align-items: center;
+}
+
+#guest_menu_aberto {
+  grid-template-rows: 6vw repeat(4, 1fr);
+}
+
+#main_adm_obra {
+  overflow-x: auto;
+  display: grid;
+  grid-template-rows: auto;
+  margin-top: 12vw;
+  gap: 5vw;
+}
+
+.adm_obras_linha_obras {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: auto;
+  gap: 2vw;
+}
+
+.adm_obras_obra {
+  width: 40vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #233431;
+  padding: 2vw;
+  border-radius: 25px;
+}
+
+.adm_obras_obra_info_inicial {
+  display: grid;
+  grid-template-rows: 25vw 1fr;
+}
+
+.adm_obras_obra_info_inicial img {
+  width: 100%;
+  height: 100%;
+}
+
+.adm_obras_obra_info_inicial p {
+  padding-top: 2vw;
+}
+
+.adm_obras_obra_descricao_inicial {
+  padding-left: 1.5vw;
+  display: grid;
+  grid-template-rows: 1fr 4vw;
+  text-align: left;
+}
+
+.adm_obras_obra_descricao_inicial .descricao {
+  display: grid;
+  grid-template-rows: 6vw 1fr;
+}
+
+.descricao_obra .titulos {
+  text-indent: -0.8vw;
+}
+
+.descricao_obra p {
+  overflow-y: auto;
+  max-height: 12.5vw;
+  font-size: 1.2vw;
+}
+
+.nome_obra_card {
+  margin-left: -1vw;
+  font-size: 1.75vw;
+  text-indent: 0;
+}
+
+#tipo_obra_card {
+  font-size: 1.4vw;
+}
+
+.adm_obras_obra_descricao_inicial .editar_btn {
+  text-align: right;
+}
+
+.adm_obras_obra_descricao_inicial .editar_btn img {
+  width: 4vw;
+  height: 100%;
+  border-radius: 500px;
+  cursor: pointer;
+}
+
+@keyframes slideIn_obra {
+  0% {
+    top: -50vh;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    top: 20vh;
+  }
+}
+@keyframes slideOff_obra {
+  100% {
+    top: -50vh;
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+    visibility: visible;
+    top: 20vh;
+  }
+}
+@keyframes opacityOff {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes opacityOn {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0.3;
+  }
+}
+.main_adm_obra_edit {
+  visibility: hidden;
+  padding: 2vw;
+  display: grid;
+  grid-template-rows: auto;
+  position: fixed;
+  width: 65vw;
+  height: auto;
+  top: 20vh;
+  left: 17.5vw;
+  border: 1vw solid #233431;
+  border-radius: 20px;
+  background-color: #6DA097;
+}
+
+.main_adm_obra_edit .informacoes {
+  display: grid;
+  grid-template-columns: 15vw 1fr;
+  margin-top: 1vw;
+}
+
+.informacoes .descricao {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 1vw;
+}
+
+#desc_obra_edit {
+  background-color: #6DA097;
+  border: 0.3vw solid #233431;
+  border-bottom: 0.6vw solid #233431;
+  border-left: 0.6vw solid #233431;
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.7882352941);
+  font-size: 1.2vw;
+  width: 95%;
+  min-height: 10vw;
+  max-height: 25vw;
+  margin-left: 1vw;
+  padding: 1vw;
+  overflow-x: auto;
+  resize: none;
+}
+
+.descricao .informacoes_superior {
+  display: grid;
+  grid-template-columns: 1fr 3vw;
+  gap: 3vw;
+}
+
+.informacoes_superior .close p {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: 4vw;
+  margin-top: -2vw;
+  margin-left: 1vw;
+  width: 2.5vw;
+  height: 4vw;
+  border-radius: 15px;
+  padding: 1.3vw;
+  padding-top: 0.5vw;
+  cursor: pointer;
+}
+
+.informacoes_superior .close p:hover {
+  background-color: #8BCCC1;
+}
+
+.informacoes_superior .titulo {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 3vw;
+}
+
+input {
+  width: 60%;
+  background-color: #6DA097;
+  padding: 0.1vw;
+  border: 0.3vw solid #233431;
+  border-bottom: 0.6vw solid #233431;
+  border-left: 0.6vw solid #233431;
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.7882352941);
+  font-size: 1.2vw;
+  text-indent: 0.8vw;
+  margin-left: 0.8vw;
+  height: 3.5vw;
+}
+
+.tipo_obra {
+  width: 100%;
+  height: 100%;
+}
+
+.tipo_obra label {
+  width: 6vw;
+  padding-top: 0.2vw;
+}
+
+select {
+  height: 100%;
+  width: 60%;
+  height: 3.5vw;
+  background-color: #6DA097;
+  border: 0.3vw solid #233431;
+  border-bottom: 0.6vw solid #233431;
+  border-left: 0.6vw solid #233431;
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.7882352941);
+  font-size: 1.2vw;
+  text-indent: 0.8vw;
+  margin-left: 0.8vw;
+}
+
+select:hover {
+  border: 0.3vw solid #8BCCC1;
+  border-bottom: 0.6vw solid #8BCCC1;
+  border-left: 0.6vw solid #8BCCC1;
+}
+
+label {
+  padding-top: 0.2vw;
+  position: absolute;
+  background-color: #6DA097;
+  border-radius: 25px;
+  border: 0.3vw solid #233431;
+  border-bottom: 0.5vw solid #233431;
+  border-left: 0.5vw solid #233431;
+  width: 7vw;
+  font-size: 1.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1.7vw;
+  margin-left: 1vw;
+}
+
+.informacoes img {
+  width: 10vw;
+  height: 10vw;
+}
+
+.informacoes .upload_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main_adm_obra_edit .dados {
+  display: grid;
+  grid-template-columns: 1fr 8vw 8vw;
+}
+
+.dados {
+  margin-top: 2vw;
+}
+
+.dados .texto {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.dados .salvar input {
+  text-indent: 0;
+  width: 6.5vw;
+  padding: 0;
+  margin: 0;
+}
+
+input[type=submit] {
+  background-color: #233431;
+  border-radius: 15px;
+  border: none;
+  border-bottom: 0.4vw solid #8BCCC1;
+  border-left: 0.4vw solid #8BCCC1;
+  cursor: pointer;
+  font-family: "Official_Book";
+  font-size: 1.4vw;
+}
+
+input[type=submit]:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
+.dados .inativar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7vw;
+  background-color: #233431;
+  border-radius: 15px;
+  border: none;
+  border-bottom: 0.4vw solid #8BCCC1;
+  border-left: 0.4vw solid #8BCCC1;
+  cursor: pointer;
+  font-size: 1.4vw;
+}
+
+.dados .inativar:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
+.texto label {
+  margin-top: 0.3vw;
+  margin-left: 2vw;
+  padding: 0.2vw;
+  padding-top: 0.3vw;
+  font-size: 1.5vw;
+  width: 9vw;
+}
+
+.texto textarea {
+  margin-top: 2vw;
+  font-family: "Official_Book";
+}
+
+#desc_obra_edit:hover {
+  border: 0.3vw solid #8BCCC1;
+  border-bottom: 0.6vw solid #8BCCC1;
+  border-left: 0.6vw solid #8BCCC1;
+}
+
+.main_adm_obra_adicionar {
+  padding: 2vw;
+  display: grid;
+  grid-template-rows: auto;
+  position: fixed;
+  width: 65vw;
+  height: auto;
+  top: 20vh;
+  left: 17.5vw;
+  border: 1vw solid #233431;
+  border-radius: 20px;
+  background-color: #6DA097;
+}
+
+.main_adm_obra_adicionar .informacoes {
+  display: grid;
+  grid-template-columns: 15vw 1fr;
+  margin-top: 1vw;
+}
+
+.main_adm_obra_adicionar .dados {
+  display: grid;
+  grid-template-columns: 1fr 8vw 8vw;
+}/*# sourceMappingURL=estilo_adm_obra.css.map */

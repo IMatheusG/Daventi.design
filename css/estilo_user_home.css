@@ -1,0 +1,68 @@
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7882352941);
+}
+
+#guest_menu_aberto {
+  grid-template-rows: 6vw repeat(5, 1fr);
+}
+
+#main_home {
+  margin-top: 12vw;
+  display: grid;
+  grid-template-rows: 5vw 1fr 5vw;
+  gap: 4vw;
+  text-align: center;
+}
+
+.user_home_titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_home_titulo h2 {
+  width: 25vw;
+  padding: 0.6vw;
+  font-size: 2vw;
+}
+
+.user_home_obras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+}
+
+.user_home_obras .obra {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_home_obras .obra img {
+  max-width: 90%;
+  max-height: 100%;
+  border: 1vw solid #233431;
+  border-radius: 25px;
+}
+
+.user_home_cta p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8vw;
+  width: 30vw;
+  height: 4.5vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  background-color: #233431;
+  border-bottom: 0.4vw solid #8BCCC1;
+  border-left: 0.4vw solid #8BCCC1;
+}
+
+.user_home_cta p:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}/*# sourceMappingURL=estilo_user_home.css.map */

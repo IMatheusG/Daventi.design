@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css" type="text/css">
+        <link rel="stylesheet" href="./css/estilo_base.css" type="text/css">
+        <link rel="stylesheet" href="./css/estilo_user_home.css" type="text/css">
+    </head>
+    <body>
+        <main id="main_home">
+            <div class="user_home_titulo">
+                <h2>
+                    Obras em destaque
+                </h2>
+            </div>            
+            <div class="user_home_obras">
+                <div class="obra">
+                    <img src="./src/obras/esteta.jpg" alt="">
+                </div>
+                <div class="obra">
+                    <img src="./src/obras/ikigai.jpg" alt="">
+                </div>
+                <div class="obra">
+                    <img src="./src/obras/venti01.png" alt="">
+                </div>
+            </div>
+            <div class="user_home_cta">
+                <a href="./user_portfolio.html">
+                    <p> 
+                        Visite o porfólio e descubra mais!
+                    </p>    
+                </a>                
+            </div>
+        </main>
+        <header id="#user_home">
+            <h1>
+                Daventi
+            </h1>
+            <div id="guest_menu" onclick="abrirMenu()">
+                <img src="./src/menu_icon.png" width="100%" height="100%" >
+            </div>
+            <div id="guest_menu_aberto">
+                <div id="guest_fechar_menu">
+                    <p onclick="fecharMenu()">
+                        x
+                    </p>
+                </div>
+                <div class="guest_op_menu"> 
+                    <a href="./user_home.html" onclick="fecharMenu()">
+                        <h2>
+                            Obras em destaque
+                        </h2>      
+                    </a>              
+                </div>
+                <div class="guest_op_menu">
+                    <a href="./user_portfolio.html" onclick="fecharMenu()">
+                        <h2>
+                            Portfólio
+                        </h2>      
+                    </a>                      
+                </div>
+                <div class="guest_op_menu">
+                    <a href="./user_perfil.html" onclick="fecharMenu()">
+                        <h2>
+                            Perfil
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="./user_sobre_nos.html" onclick="fecharMenu()">
+                        <h2>
+                            Sobre nós
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="./guest_landing_page.html" onclick="fecharMenu()">
+                        <h2>
+                            Sair
+                        </h2>      
+                    </a>  
+                </div>
+            </div>
+        </header>
+        <footer>
+            <div class="vazio">
+
+            </div>
+            <div class="opcoes">
+                <div class="vazio">
+
+                </div>
+                <div class="redes">
+                    <div class="texto">
+                        <h1>
+                            Daventi
+                        </h1>                           
+                    </div>
+                    <p>
+                        Conecte-se conosco
+                    </p>
+                    <div class="redes_imgs">
+                        <img src="./src/instagram_icon.png">
+                        <img src="./src/kofi_icon.png" id="kofi">
+                    </div>
+                    
+                </div>
+                <div class="navegacao">
+                    <ul> <h2> Navegação </h2> </ul>
+                    <ul> 
+                        <a href="user_home.html">
+                            Obras em destaque
+                        </a>    
+                    </ul>
+                    <ul>
+                        <a href="./user_portfolio.html">
+                            Portfólio
+                        </a>
+                    </ul>
+                    <ul>
+                        <a href="./user_perfil.html">
+                            Perfil
+                        </a>    
+                    </ul>
+                    <ul>
+                        <a href="./user_sobre_nos.html">
+                            Sobre a Daventi Design
+                        </a>
+                    </ul>
+                </div>
+                <div class="vazio"></div>
+            </div>
+            <div class="copyright">
+                © Um projeto do grupo Daventi 2024
+            </div>
+        </footer>
+        <script src="./js/guest_menu.js"></script>
+    </body>
+</html>
