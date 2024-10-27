@@ -34,16 +34,16 @@
                     <div class="adm_obras_obra_descricao_inicial">
                         <div class="descricao_obra">
                             <div class="titulos">
-                                <h2 class="nome_obra_card">
+                                <h2 class="nome_obra_card" id="titulo_obra_<?php echo $obra['id_obra'] ?>">
                                     <?php echo $obra['titulo']?>
                                 </h2>
-                                <h2 id="tipo_obra_card">
+                                <h2 class="tipo_obra_card" id="tipo_obra_<?php echo $obra['id_obra'] ?>">
                                     <?php echo $obra['tipo']?>
                                 </h2>
                             </div>                            
-                            <p>
-                                Descrição: <?php echo $obra['descricao']?>
-                            </p>
+                            <div class='texto' id="descricao_obra_<?php echo $obra['id_obra'] ?>">
+                                Descrição: <b> <?php echo $obra['descricao']?> </b>
+                            </div>
                         </div>
                         <div class="editar_btn" onclick="abrir_edicao_obra()" data_id='<?php echo $obra['id_obra'] ?>'>
                             <img src="../src/edit_icon.png" alt="">
@@ -65,22 +65,22 @@
                         <div class="titulo">
                             <div class="input_titulo">
                                 <label for="titulo_obra"> Titulo </label>
-                                <input type="text" value="Nome da obra" name="titulo_obra">    
+                                <input type="text" value="" name="titulo_obra" id="edit_titulo_obra">    
                             </div>
                             
                             <div class="tipo_obra">
                                 <label for="tipo_obra"> Tipo </label>
-                                <select name="tipo_obra">
+                                <select name="tipo_obra" id="tipo_obra_edit">
                                     <option>
                                         
                                     </option>
-                                    <option value="poster">
+                                    <option value="Poster">
                                         Poster
                                     </option>
-                                    <option value="wallpaper">
+                                    <option value="Wallpaper">
                                         Wallpaper
                                     </option>
-                                    <option value="postagem">
+                                    <option value="Postagem">
                                         Postagem
                                     </option>
                                 </select>
@@ -94,15 +94,13 @@
                     </div>
                     <div class="texto">
                         <label for="descricao_edit"> Descrição </label>
-                        <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam velit, sit consectetur temporibus eum nulla obcaecati culpa et, rem adipisci blanditiis harum, molestias dignissimos id quae expedita mollitia nam incidunt?
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi numquam iure distinctio veritatis. Cumque quae labore eveniet unde modi deserunt officiis itaque culpa voluptatibus, consectetur fuga obcaecati. Odio, eaque dicta</textarea>
+                        <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
                     </div>
                 </div>
             </div>
             <div class="dados">
-                <div class="texto">
-                    Visualizações: 5 <br>
-                    Favoritos: 2
+                <div class="texto" id="edit_id">
+                     
                 </div>
                 <div class="salvar">
                     <input type="submit" value="Salvar">

@@ -40,22 +40,27 @@ function fechar_edicao_obra() {
 
 }
 
-// document.querySelectorAll('.editar_btn').forEach(button => {
-//     // Quando clicamos no botão de editar...
-//     button.addEventListener('click', function() {
-//         // Pegamos o número especial do card (ID) desse botão
-//         const cardId = this.getAttribute('data_id');
+document.querySelectorAll('.editar_btn').forEach(button => {
+    // Quando clicamos no botão de editar...
+    button.addEventListener('click', function() {
+        // Pegamos o número especial do card (ID) desse botão
+        const obraId = this.getAttribute('data_id');
 
-//         // Pegamos o título e a descrição do card com o ID certo
-//         const cardTitle = document.querySelector(`#card-${cardId} h3`).textContent;
-//         const cardDescription = document.querySelector(`#card-${cardId} p`).textContent;
+        // aqui eu já tenho o ID
 
-//         // Colocamos o número do card, o título e a descrição dentro da modal
-//         document.getElementById('edit-id').value = cardId;
-//         document.getElementById('edit-title').value = cardTitle;
-//         document.getElementById('edit-description').value = cardDescription;
+        // Pegamos o título e a descrição do card com o ID certo
+        const obraTitulo = document.querySelector(`#titulo_obra_${obraId}`).textContent.trim();
+        const obraDescricao = document.querySelector(`#descricao_obra_${obraId} b`).textContent.trim();
+        const obraTipo = document.querySelector(`#tipo_obra_${obraId}`).textContent.trim();
+
+        // aqui já tenho o conteúdo da obra
+
+        // Colocamos o número do card, o título e a descrição dentro da modal
+        document.getElementById('edit_id').textContent = "ID: " + obraId;
+        document.getElementById('edit_titulo_obra').value = obraTitulo;
+        document.getElementById('tipo_obra_edit').value = obraTipo;
+        document.getElementById('desc_obra_edit').textContent = obraDescricao;
         
-//         // Mostramos a modal (caixinha) na tela
-//         document.getElementById('editModal').style.display = 'block';
-//     });
-// });
+        
+    });
+});
