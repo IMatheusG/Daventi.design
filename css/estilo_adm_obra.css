@@ -66,6 +66,8 @@ a {
 }
 
 .descricao_obra .texto {
+  white-space: normal;
+  word-wrap: break-word;
   overflow-y: auto;
   max-height: 12.5vw;
   font-size: 1.2vw;
@@ -294,6 +296,41 @@ label {
   justify-content: left;
 }
 
+.dados .id_e_posicao {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 0.5vw;
+}
+
+.posicao {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.posicao p {
+  margin-top: 0.3vw;
+}
+
+#posicao_check {
+  width: 3vw;
+  height: 1.5vw;
+  margin-left: -0.8vw;
+}
+
+#id_input {
+  outline: none;
+  border-radius: 0px;
+  font-size: 1.6vw;
+  text-indent: -0.2vw;
+  margin-top: -0.2vw;
+  text-indent: 0;
+  border: none;
+  width: auto;
+  height: auto;
+  cursor: default;
+}
+
 .dados .salvar input {
   text-indent: 0;
   width: 6.5vw;
@@ -319,6 +356,7 @@ input[type=submit]:hover {
 }
 
 .dados .inativar {
+  height: 3.5vw;
   display: flex;
   align-items: center;
   justify-content: center;

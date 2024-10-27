@@ -28,7 +28,7 @@
                         <img src="<?php echo $obra['imagem']?>" >
                         <p>
                             Visualizações: <?php echo $obra['visualizacoes']?> <br>
-                            Favoritos: <?php echo $obra['qtd_favoritos']?>
+                            Favoritos: <?php echo $obra['favoritos']?>
                         </p>
                     </div>
                     <div class="adm_obras_obra_descricao_inicial">
@@ -55,7 +55,7 @@
                 ?>                
             </div>  
         </main>
-        <form class="main_adm_obra_edit" id="obra_edit">
+        <form class="main_adm_obra_edit" id="obra_edit" action="./verificar_edit_obra.php" method="POST">
             <div class="informacoes">
                 <div class="upload_img">
                     <img src="../src/upload_icon.png" alt="">
@@ -71,7 +71,7 @@
                             <div class="tipo_obra">
                                 <label for="tipo_obra"> Tipo </label>
                                 <select name="tipo_obra" id="tipo_obra_edit">
-                                    <option>
+                                    <option selected disabled>
                                         
                                     </option>
                                     <option value="Poster">
@@ -96,12 +96,20 @@
                         <label for="descricao_edit"> Descrição </label>
                         <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
                     </div>
-                </div>
+                </div>                
             </div>
             <div class="dados">
-                <div class="texto" id="edit_id">
-                     
-                </div>
+                <div class="id_e_posicao">
+                    <div class="texto">
+                        ID: <input type="text" id="id_input" readonly name="id_obra_input">
+                    </div>
+                    <div class="posicao">
+                        <input type="checkbox" id="posicao_check" name="posicao_obra" value="horizontal"> 
+                        <p>
+                            Imagem horizontal
+                        </p>
+                    </div>
+                </div>                
                 <div class="salvar">
                     <input type="submit" value="Salvar">
                 </div>
@@ -244,4 +252,20 @@
         <script src="../js/guest_menu.js"></script>
         <script src="../js/adm_obra.js"></script>
     </body>
+    <script>
+        window.onload = function(){
+            const parametros = new URLSearchParams(window.location.search);
+            if (parametros.has('status')){
+                const status = parametros.get('status');
+                if (status === 'sucesso'){
+                    alert('Alterações salvas com sucesso');
+                } else {
+                    alert(status);
+                }
+               
+                const newUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        }
+    </script>
 </html>

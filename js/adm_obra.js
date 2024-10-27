@@ -40,6 +40,9 @@ function fechar_edicao_obra() {
 
 }
 
+
+// Passando os valores para a modal de edit
+
 document.querySelectorAll('.editar_btn').forEach(button => {
     // Quando clicamos no botão de editar...
     button.addEventListener('click', function() {
@@ -49,18 +52,18 @@ document.querySelectorAll('.editar_btn').forEach(button => {
         // aqui eu já tenho o ID
 
         // Pegamos o título e a descrição do card com o ID certo
-        const obraTitulo = document.querySelector(`#titulo_obra_${obraId}`).textContent.trim();
-        const obraDescricao = document.querySelector(`#descricao_obra_${obraId} b`).textContent.trim();
+        const obraTitulo = document.querySelector(`#titulo_obra_${obraId}`).innerHTML.trim();
+        const obraDescricao = document.querySelector(`#descricao_obra_${obraId} b`).innerHTML.trim();
+        console.log(obraDescricao);
         const obraTipo = document.querySelector(`#tipo_obra_${obraId}`).textContent.trim();
 
         // aqui já tenho o conteúdo da obra
 
+        
         // Colocamos o número do card, o título e a descrição dentro da modal
-        document.getElementById('edit_id').textContent = "ID: " + obraId;
+        document.getElementById('id_input').value = obraId;
         document.getElementById('edit_titulo_obra').value = obraTitulo;
         document.getElementById('tipo_obra_edit').value = obraTipo;
         document.getElementById('desc_obra_edit').textContent = obraDescricao;
-        
-        
     });
 });
