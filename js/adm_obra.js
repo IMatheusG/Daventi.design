@@ -42,11 +42,12 @@ function fechar_edicao_obra() {
 
 
 // Passando os valores para a modal de edit
+document.write('abc');
 
 document.querySelectorAll('.editar_btn').forEach(button => {
-    // Quando clicamos no botão de editar...
+    // Ao clicar no botão de editar
     button.addEventListener('click', function() {
-        // Pegamos o número especial do card (ID) desse botão
+        // Pegamos o ID desse botão
         const obraId = this.getAttribute('data_id');
 
         // aqui eu já tenho o ID
@@ -54,16 +55,37 @@ document.querySelectorAll('.editar_btn').forEach(button => {
         // Pegamos o título e a descrição do card com o ID certo
         const obraTitulo = document.querySelector(`#titulo_obra_${obraId}`).innerHTML.trim();
         const obraDescricao = document.querySelector(`#descricao_obra_${obraId} b`).innerHTML.trim();
-        console.log(obraDescricao);
+        // console.log(obraDescricao);
         const obraTipo = document.querySelector(`#tipo_obra_${obraId}`).textContent.trim();
-
+        const posicaoObra = document.querySelector(`#posicao_obra_${obraId}`).textContent.trim();
+        const statusObra = document.querySelector(`#status_obra_${obraId}`).textContent.trim();
         // aqui já tenho o conteúdo da obra
 
-        
-        // Colocamos o número do card, o título e a descrição dentro da modal
+        console.log(statusObra);
+
+        // Colocamos os dados que coletamos dentro do edit
         document.getElementById('id_input').value = obraId;
         document.getElementById('edit_titulo_obra').value = obraTitulo;
         document.getElementById('tipo_obra_edit').value = obraTipo;
         document.getElementById('desc_obra_edit').textContent = obraDescricao;
+        document.getElementById('edit_inativar_obra').value = statusObra;
+
+        console.log(posicaoObra);
+        if (posicaoObra == 'horizontal'){
+            document.getElementById('posicao_check').checked = true;
+        } else {
+            document.getElementById('posicao_check').checked = false;
+        }
     });
 });
+
+function desativarObraJs(){
+    statusObra = '0';
+    // document.write('status atual: ', statusObra);
+    // document.write(obraTitulo);
+    document.getElementById('edit_inativar_obra').value = statusObra;
+
+    // manda o form
+    const form = document.getElementById('obra_edit');
+    form.submit();
+}

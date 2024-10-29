@@ -21,7 +21,7 @@
             <div class="adm_obras_linha_obras">
                 <?php
                     while ($obra = $todas_obras->fetch_assoc()){
-                    
+                        if ($obra['status'] != '0'){
                 ?>
                 <div class="adm_obras_obra">
                     <div class="adm_obras_obra_info_inicial">
@@ -50,8 +50,15 @@
                         </div>
                     </div>
                 </div>
-                <?php
+                <div class="posicao_no_banco" id="posicao_obra_<?php echo $obra['id_obra']?>">
+                    <?php echo $obra['posicao'] ?>
+                </div>
+                <div class="status_obra_banco" id="status_obra_<?php echo $obra['id_obra'] ?>">
+                    <?php echo $obra['status'] ?>
+                </div>
+                <?php                  
                     }
+                }
                 ?>                
             </div>  
         </main>
@@ -113,12 +120,11 @@
                 <div class="salvar">
                     <input type="submit" value="Salvar">
                 </div>
-                <div class="inativar">
-                    <p>
-                        Inativar
-                    </p>
+                <div class="inativar" onclick="desativarObraJs()">
+                    Inativar
                 </div>
             </div>
+            <input class="status_obra_banco" id="edit_inativar_obra" name="status_obra">
         </form> 
 
         <!-- <form class="main_adm_obra_adicionar">
@@ -259,6 +265,8 @@
                 const status = parametros.get('status');
                 if (status === 'sucesso'){
                     alert('Alterações salvas com sucesso');
+                } else if (status === 'sucesso_inativar'){
+                    alert('Obra inativada com sucesso');
                 } else {
                     alert(status);
                 }

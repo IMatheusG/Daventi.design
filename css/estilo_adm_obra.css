@@ -94,6 +94,16 @@ a {
   cursor: pointer;
 }
 
+.posicao_no_banco {
+  visibility: hidden;
+  display: none;
+}
+
+.status_obra_banco {
+  visibility: hidden;
+  display: none;
+}
+
 @keyframes slideIn_obra {
   0% {
     top: -50vh;
@@ -356,6 +366,8 @@ input[type=submit]:hover {
 }
 
 .dados .inativar {
+  text-indent: 0;
+  margin-left: 0;
   height: 3.5vw;
   display: flex;
   align-items: center;
