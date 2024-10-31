@@ -59,6 +59,7 @@ document.querySelectorAll('.editar_btn').forEach(button => {
         const obraTipo = document.querySelector(`#tipo_obra_${obraId}`).textContent.trim();
         const posicaoObra = document.querySelector(`#posicao_obra_${obraId}`).textContent.trim();
         const statusObra = document.querySelector(`#status_obra_${obraId}`).textContent.trim();
+        const imagemObra = document.querySelector(`#imagem_obra_${obraId}`).textContent.trim();
         // aqui já tenho o conteúdo da obra
 
         console.log(statusObra);
@@ -69,7 +70,14 @@ document.querySelectorAll('.editar_btn').forEach(button => {
         document.getElementById('tipo_obra_edit').value = obraTipo;
         document.getElementById('desc_obra_edit').textContent = obraDescricao;
         document.getElementById('edit_inativar_obra').value = statusObra;
+        document.getElementById('edit_imagem_obra').value = imagemObra;
 
+        
+        document.getElementById('imagem_obra_edit').setAttribute('src', imagemObra )
+        document.getElementById('imagem_obra_edit').setAttribute('width', '100%' );
+        document.getElementById('imagem_obra_edit').setAttribute('height', '100%' );
+
+        // console.log('img : ' + imagemObra);
         console.log(posicaoObra);
         if (posicaoObra == 'horizontal'){
             document.getElementById('posicao_check').checked = true;

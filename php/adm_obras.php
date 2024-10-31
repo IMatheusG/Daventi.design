@@ -50,11 +50,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="posicao_no_banco" id="posicao_obra_<?php echo $obra['id_obra']?>">
+                <div class="inputs_inativados" id="posicao_obra_<?php echo $obra['id_obra']?>">
                     <?php echo $obra['posicao'] ?>
                 </div>
-                <div class="status_obra_banco" id="status_obra_<?php echo $obra['id_obra'] ?>">
+                <div class="inputs_inativados" id="status_obra_<?php echo $obra['id_obra'] ?>">
                     <?php echo $obra['status'] ?>
+                </div>
+                <div class="inputs_inativados" id="imagem_obra_<?php echo $obra['id_obra'] ?>">
+                    <?php echo $obra['imagem'] ?>
                 </div>
                 <?php                  
                     }
@@ -62,10 +65,12 @@
                 ?>                
             </div>  
         </main>
-        <form class="main_adm_obra_edit" id="obra_edit" action="./verificar_edit_obra.php" method="POST">
+        <form class="main_adm_obra_edit" id="obra_edit" action="./verificar_edit_obra.php" method="POST" enctype="multipart/form-data">
             <div class="informacoes">
                 <div class="upload_img">
-                    <img src="../src/upload_icon.png" alt="">
+                    <img src="" alt="" id="imagem_obra_edit">                    
+                    <img src="../src/upload_icon.png" alt="" class="upload_icon">
+                    <input type="file" name="input_edit_img_name" id="input_edit_img">
                 </div>                
                 <div class="descricao">
                     <div class="informacoes_superior">
@@ -124,7 +129,8 @@
                     Inativar
                 </div>
             </div>
-            <input class="status_obra_banco" id="edit_inativar_obra" name="status_obra">
+            <input class="inputs_inativados" id="edit_inativar_obra" name="status_obra">
+            <input class="inputs_inativados" id="edit_imagem_obra" name="imagem_obra">
         </form> 
 
         <!-- <form class="main_adm_obra_adicionar">
@@ -263,13 +269,22 @@
             const parametros = new URLSearchParams(window.location.search);
             if (parametros.has('status')){
                 const status = parametros.get('status');
-                if (status === 'sucesso'){
-                    alert('Alterações salvas com sucesso');
-                } else if (status === 'sucesso_inativar'){
-                    alert('Obra inativada com sucesso');
-                } else {
                     alert(status);
-                }
+                // if (status === 'sucesso'){
+                //     alert('Alterações salvas com sucesso');
+                // if (status === 'sucesso_inativar'){
+                //     alert('Obra inativada com sucesso');
+                // } else if (status === 'erro_enviar_arquivo'){ 
+                //     alert('Erro ao enviar o arquivo');
+                // } else if (status === 'erro_extensao'){ 
+                //     alert('Tipo de arquivo não suportado');
+                // } else if (status === 'erro_envio'){ 
+                //     alert('Erro ao enviar o arquivo');
+                // } else if (status === 'sucesso_envio'){ 
+                //     alert('Arquivo enviado com sucesso');
+                // } else {
+                //     alert(status);
+                // }
                
                 const newUrl = window.location.origin + window.location.pathname;
                 window.history.replaceState({}, document.title, newUrl);

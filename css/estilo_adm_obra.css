@@ -94,12 +94,7 @@ a {
   cursor: pointer;
 }
 
-.posicao_no_banco {
-  visibility: hidden;
-  display: none;
-}
-
-.status_obra_banco {
+.inputs_inativados {
   visibility: hidden;
   display: none;
 }
@@ -280,15 +275,30 @@ label {
   margin-left: 1vw;
 }
 
-.informacoes img {
-  width: 10vw;
-  height: 10vw;
-}
-
 .informacoes .upload_img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.upload_icon {
+  width: 10vw;
+  height: 10vw;
+  position: absolute;
+  border-radius: 25px;
+  margin-left: 0.8vw;
+}
+
+#imagem_obra_edit {
+  opacity: 0.35;
+}
+
+#input_edit_img {
+  position: absolute;
+  width: 10vw;
+  height: 10vw;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .main_adm_obra_edit .dados {

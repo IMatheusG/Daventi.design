@@ -56,7 +56,7 @@
                         <label for="senha"> 
                             Senha
                         </label>
-                        <input type="text" name="senha" required>
+                        <input type="password" name="senha" required>
                     </div>
                 </div>
                 <div class="login_login_btn">

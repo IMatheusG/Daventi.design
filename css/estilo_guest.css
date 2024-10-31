@@ -77,12 +77,13 @@ a {
 
 .guest_obras_destaque h2 {
   margin-top: -2.5%;
+  margin-left: 3.7vw;
 }
 
 .guest_obras {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: 90vw;
+  width: 87.5vw;
   height: 45.5vw;
   gap: 3vw;
   text-align: center;
