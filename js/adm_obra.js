@@ -1,6 +1,7 @@
 const editAberto = document.getElementById('obra_edit');
 const body = document.getElementById('body');
 const main = document.getElementById('main_adm_obra');
+
 //editAberto.style.visibility = 'hidden';
 function abrir_edicao_obra() {
     
@@ -48,21 +49,22 @@ document.querySelectorAll('.editar_btn').forEach(button => {
     // Ao clicar no botão de editar
     button.addEventListener('click', function() {
         // Pegamos o ID desse botão
+        
         const obraId = this.getAttribute('data_id');
 
         // aqui eu já tenho o ID
 
         // Pegamos o título e a descrição do card com o ID certo
         const obraTitulo = document.querySelector(`#titulo_obra_${obraId}`).innerHTML.trim();
-        const obraDescricao = document.querySelector(`#descricao_obra_${obraId} b`).innerHTML.trim();
-        // console.log(obraDescricao);
+        let obraDescricao = document.querySelector(`#descricao_obra_${obraId}`).textContent.trim();
+        console.log(obraDescricao);
+        obraDescricao = obraDescricao.slice(11);
+        console.log(obraDescricao);
         const obraTipo = document.querySelector(`#tipo_obra_${obraId}`).textContent.trim();
         const posicaoObra = document.querySelector(`#posicao_obra_${obraId}`).textContent.trim();
-        const statusObra = document.querySelector(`#status_obra_${obraId}`).textContent.trim();
+        let statusObra = document.querySelector(`#status_obra_${obraId}`).textContent.trim();
         const imagemObra = document.querySelector(`#imagem_obra_${obraId}`).textContent.trim();
         // aqui já tenho o conteúdo da obra
-
-        console.log(statusObra);
 
         // Colocamos os dados que coletamos dentro do edit
         document.getElementById('id_input').value = obraId;
@@ -76,6 +78,8 @@ document.querySelectorAll('.editar_btn').forEach(button => {
         document.getElementById('imagem_obra_edit').setAttribute('src', imagemObra )
         document.getElementById('imagem_obra_edit').setAttribute('width', '100%' );
         document.getElementById('imagem_obra_edit').setAttribute('height', '100%' );
+
+        
 
         // console.log('img : ' + imagemObra);
         console.log(posicaoObra);
@@ -94,6 +98,24 @@ function desativarObraJs(){
     document.getElementById('edit_inativar_obra').value = statusObra;
 
     // manda o form
+    const form = document.getElementById('obra_edit');
+    form.submit();
+}
+
+
+function reativarObraJs(){
+    statusObra = '1';
+    // document.write('status atual: ', statusObra);
+    // document.write(obraTitulo);
+    document.getElementById('edit_reativar_obra').value = statusObra;
+
+    // manda o form
+    const form = document.getElementById('obra_edit');
+    form.submit();
+}
+
+function salvarDados(){
+    document.getElementById('edit_salvar_dados').value = 1;
     const form = document.getElementById('obra_edit');
     form.submit();
 }

@@ -18,6 +18,11 @@
     </head>
     <body id="body">
         <main id="main_adm_obra">
+            <div class="adm_obras_titulo_secao_obra">
+                <h2>
+                    Obras ativas
+                </h2>
+            </div>
             <div class="adm_obras_linha_obras">
                 <?php
                     while ($obra = $todas_obras->fetch_assoc()){
@@ -26,6 +31,58 @@
                 <div class="adm_obras_obra">
                     <div class="adm_obras_obra_info_inicial">
                         <img src="<?php echo $obra['imagem']?>" >
+                        <p>
+                            Visualizações: <?php echo $obra['visualizacoes']?> <br>
+                            Favoritos: <?php echo $obra['favoritos']?>
+                        </p>
+                    </div>
+                    <div class="adm_obras_obra_descricao_inicial">
+                        <div class="descricao_obra">
+                            <div class="titulos">
+                                <h2 class="nome_obra_card" id="titulo_obra_<?php echo $obra['id_obra'] ?>">
+                                    <?php echo $obra['titulo']?>
+                                </h2>
+                                <h2 class="tipo_obra_card" id="tipo_obra_<?php echo $obra['id_obra'] ?>">
+                                    <?php echo $obra['tipo']?>
+                                </h2>
+                            </div>                            
+                            <div class='texto' id="descricao_obra_<?php echo $obra['id_obra'] ?>">
+                                Descrição: <b > <?php echo $obra['descricao']?> </b>
+                            </div>
+                        </div>
+                        <div class="editar_btn" onclick="abrir_edicao_obra()" data_id='<?php echo $obra['id_obra'] ?>'>
+                            <img src="../src/edit_icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="inputs_inativados" id="posicao_obra_<?php echo $obra['id_obra']?>">
+                    <?php echo $obra['posicao'] ?>
+                </div>
+                <div class="inputs_inativados" id="status_obra_<?php echo $obra['id_obra'] ?>">
+                    <?php echo $obra['status'] ?>
+                </div>
+                <div class="inputs_inativados" id="imagem_obra_<?php echo $obra['id_obra'] ?>">
+                    <?php echo $obra['imagem'] ?>
+                </div>
+                <?php                  
+                    }
+                }
+                ?>                
+            </div>  
+            <div class="adm_obras_titulo_secao_obra2">
+                <h2>
+                    Obras desativadas
+                </h2>
+            </div>
+            <div class="adm_obras_linha_obras">
+                <?php
+                    $obras = $mysqli->query("SELECT * FROM obra");
+                    while ($obra = $obras->fetch_assoc()){
+                        if ($obra['status'] == '0'){
+                ?>
+                <div class="adm_obras_obra">
+                    <div class="adm_obras_obra_info_inicial">
+                        <img src="<?php echo $obra['imagem'] ?>">
                         <p>
                             Visualizações: <?php echo $obra['visualizacoes']?> <br>
                             Favoritos: <?php echo $obra['favoritos']?>
@@ -63,8 +120,27 @@
                     }
                 }
                 ?>                
-            </div>  
+            </div> 
         </main>
+        <script>
+            document.querySelectorAll('.editar_btn').forEach(button => {
+                // Ao clicar no botão de editar
+                button.addEventListener('click', function() {
+                    // Pegamos o ID desse botão
+        
+                    const obraId = this.getAttribute('data_id');
+                    let statusObra = document.querySelector(`#status_obra_${obraId}`).textContent.trim();
+                    //document.write(statusObra);
+                    if (statusObra === '0'){                        
+                        document.getElementById('inativar_obra').style.display = 'none';
+                        document.getElementById('reativar_obra').style.display = 'flex';
+                    } else {
+                        document.getElementById('inativar_obra').style.display = 'flex';
+                        document.getElementById('reativar_obra').style.display = 'none';
+                    }
+                })
+            })
+        </script>
         <form class="main_adm_obra_edit" id="obra_edit" action="./verificar_edit_obra.php" method="POST" enctype="multipart/form-data">
             <div class="informacoes">
                 <div class="upload_img">
@@ -122,14 +198,19 @@
                         </p>
                     </div>
                 </div>                
-                <div class="salvar">
-                    <input type="submit" value="Salvar">
+                <div class="inativar" onclick="salvarDados()" id='salvar_obra'>
+                    Salvar
                 </div>
-                <div class="inativar" onclick="desativarObraJs()">
+                <div class="inativar" onclick="desativarObraJs()" id='inativar_obra'>
                     Inativar
+                </div>
+                <div class="inativar" onclick="reativarObraJs()" id='reativar_obra'>
+                    Reativar
                 </div>
             </div>
             <input class="inputs_inativados" id="edit_inativar_obra" name="status_obra">
+            <input class="inputs_inativados" id="edit_reativar_obra" name="status_obra_reativar">
+            <input class="inputs_inativados" id="edit_salvar_dados" name='salvar_dados'>
             <input class="inputs_inativados" id="edit_imagem_obra" name="imagem_obra">
         </form> 
 
@@ -269,22 +350,24 @@
             const parametros = new URLSearchParams(window.location.search);
             if (parametros.has('status')){
                 const status = parametros.get('status');
+                
+                if (status === 'sucesso'){
+                    alert('Alterações salvas com sucesso');
+                } else if (status === 'sucesso_inativar'){
+                    alert('Obra inativada com sucesso');
+                } else if (status === 'erro_enviar_arquivo'){ 
+                    alert('Erro ao enviar o arquivo');
+                } else if (status === 'erro_extensao'){ 
+                    alert('Tipo de arquivo não suportado');
+                } else if (status === 'erro_envio'){ 
+                    alert('Erro ao enviar o arquivo');
+                } else if (status === 'sucesso_envio'){ 
+                    alert('Arquivo enviado com sucesso');
+                } else if (status === 'sucesso_reativar'){ 
+                    alert('Obra reativada com sucesso');
+                } else {
                     alert(status);
-                // if (status === 'sucesso'){
-                //     alert('Alterações salvas com sucesso');
-                // if (status === 'sucesso_inativar'){
-                //     alert('Obra inativada com sucesso');
-                // } else if (status === 'erro_enviar_arquivo'){ 
-                //     alert('Erro ao enviar o arquivo');
-                // } else if (status === 'erro_extensao'){ 
-                //     alert('Tipo de arquivo não suportado');
-                // } else if (status === 'erro_envio'){ 
-                //     alert('Erro ao enviar o arquivo');
-                // } else if (status === 'sucesso_envio'){ 
-                //     alert('Arquivo enviado com sucesso');
-                // } else {
-                //     alert(status);
-                // }
+                }
                
                 const newUrl = window.location.origin + window.location.pathname;
                 window.history.replaceState({}, document.title, newUrl);
