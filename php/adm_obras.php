@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/reset.css" type="text/css">
         <link rel="stylesheet" href="../css/estilo_base.css" type="text/css">
         <link rel="stylesheet" href="../css/estilo_adm_obra.css" type="text/css">
-    <title> Document </title>
+    <title> Obras </title>
     </head>
     <body id="body">
         <main id="main_adm_obra">
@@ -23,12 +23,12 @@
                     Obras ativas
                 </h2>
             </div>
-            <div class="adm_obras_linha_obras">
+            <div class="adm_obras_linha_obras" id="adm_obras_linha_obras_ativas">
                 <?php
                     while ($obra = $todas_obras->fetch_assoc()){
                         if ($obra['status'] != '0'){
                 ?>
-                <div class="adm_obras_obra">
+                <div class="adm_obras_obra" id="adm_obras_obra_id_<?php echo $obra['id_obra'] ?>">
                     <div class="adm_obras_obra_info_inicial">
                         <img src="<?php echo $obra['imagem']?>" >
                         <p>
@@ -74,13 +74,13 @@
                     Obras desativadas
                 </h2>
             </div>
-            <div class="adm_obras_linha_obras">
+            <div class="adm_obras_linha_obras" id="adm_obras_linha_obras_inativas">
                 <?php
                     $obras = $mysqli->query("SELECT * FROM obra");
                     while ($obra = $obras->fetch_assoc()){
                         if ($obra['status'] == '0'){
                 ?>
-                <div class="adm_obras_obra">
+                <div class="adm_obras_obra" id="adm_obras_obra_id_<?php echo $obra['id_obra']?>">
                     <div class="adm_obras_obra_info_inicial">
                         <img src="<?php echo $obra['imagem'] ?>">
                         <p>
@@ -121,6 +121,11 @@
                 }
                 ?>                
             </div> 
+            <div class="adm_obras_adicionar_obra">
+                <div class="adicionar_obra" onclick="abrir_add_obra()">
+                    Adicionar Obra
+                </div>
+            </div>
         </main>
         <script>
             document.querySelectorAll('.editar_btn').forEach(button => {
@@ -142,7 +147,7 @@
             })
         </script>
         <form class="main_adm_obra_edit" id="obra_edit" action="./verificar_edit_obra.php" method="POST" enctype="multipart/form-data">
-            <div class="informacoes">
+            <div class="informacoes_edit" id="informacoes_edit">
                 <div class="upload_img">
                     <img src="" alt="" id="imagem_obra_edit">                    
                     <img src="../src/upload_icon.png" alt="" class="upload_icon">
@@ -214,52 +219,79 @@
             <input class="inputs_inativados" id="edit_imagem_obra" name="imagem_obra">
         </form> 
 
-        <!-- <form class="main_adm_obra_adicionar">
-            <div class="informacoes">
+        <!-- form add -->
+        <form class="main_adm_obra_edit" id="obra_add" action="./verificar_edit_obra.php" method="POST" enctype="multipart/form-data">
+            <div class="informacoes_edit" id="informacoes_edit">
                 <div class="upload_img">
-                    <img src="../src/upload_icon.png" alt="">
+                    <img src="" alt="" id="imagem_obra_edit">                    
+                    <img src="../src/upload_icon.png" alt="" class="upload_icon">
+                    <input type="file" name="input_edit_img_name" id="input_edit_img">
                 </div>                
                 <div class="descricao">
-                    <div class="titulos">
-                        <div class="input_titulo">
-                            <label for="titulo_obra"> Titulo </label>
-                            <input type="text" value="" name="titulo_obra">    
+                    <div class="informacoes_superior">
+                        <div class="titulo">
+                            <div class="input_titulo">
+                                <label for="titulo_obra"> Titulo </label>
+                                <input type="text" value="" name="titulo_obra" id="edit_titulo_obra">    
+                            </div>
+                            
+                            <div class="tipo_obra">
+                                <label for="tipo_obra"> Tipo </label>
+                                <select name="tipo_obra" id="tipo_obra_edit">
+                                    <option selected disabled>
+                                        
+                                    </option>
+                                    <option value="Poster">
+                                        Poster
+                                    </option>
+                                    <option value="Wallpaper">
+                                        Wallpaper
+                                    </option>
+                                    <option value="Postagem">
+                                        Postagem
+                                    </option>
+                                </select>
+                            </div>                        
                         </div>
-                        
-                        <div class="tipo_obra">
-                            <label for="tipo_obra"> Tipo </label>
-                            <select name="tipo_obra">
-                                <option>
-                                    
-                                </option>
-                                <option value="poster">
-                                    Poster
-                                </option>
-                                <option value="wallpaper">
-                                    Wallpaper
-                                </option>
-                                <option value="postagem">
-                                    Postagem
-                                </option>
-                            </select>
-                        </div>                        
+                        <div class="close">
+                            <p onclick="fechar_add_obra()">
+                                X
+                            </p>
+                        </div>
                     </div>
                     <div class="texto">
                         <label for="descricao_edit"> Descrição </label>
                         <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
                     </div>
-                </div>
+                </div>                
             </div>
             <div class="dados">
-                <div class="texto">
-                    
+                <div class="id_e_posicao">
+                    <div class="texto">
+                        ID: <input type="text" id="id_input" readonly name="id_obra_input">
+                    </div>
+                    <div class="posicao">
+                        <input type="checkbox" id="posicao_check" name="posicao_obra" value="horizontal"> 
+                        <p>
+                            Imagem horizontal
+                        </p>
+                    </div>
                 </div>                
-                <div class=""></div>
-                <div class="salvar">
-                    <input type="submit" value="Salvar">
+                <div class="inativar" onclick="salvarDados()" id='salvar_obra'>
+                    Salvar
+                </div>
+                <div class="inativar" onclick="desativarObraJs()" id='inativar_obra'>
+                    Inativar
+                </div>
+                <div class="inativar" onclick="reativarObraJs()" id='reativar_obra'>
+                    Reativar
                 </div>
             </div>
-        </form> -->
+            <input class="inputs_inativados" id="edit_inativar_obra" name="status_obra">
+            <input class="inputs_inativados" id="edit_reativar_obra" name="status_obra_reativar">
+            <input class="inputs_inativados" id="edit_salvar_dados" name='salvar_dados'>
+            <input class="inputs_inativados" id="edit_imagem_obra" name="imagem_obra">
+        </form>
         <header>
             <h1>
                 Daventi
@@ -347,8 +379,155 @@
     </body>
     <script>
         window.onload = function(){
+            let posicaoObra2 = '';
+            let tamanho_obras = [];
+            let tamanho_obras_inativas = [];
+            let linha_obras_inativas = '';
+            let linha_obras_ativas = ''
+            let obra_desativada = 0;
+            let obra_ativada = 0;
+            document.querySelectorAll('.editar_btn').forEach(button => {
+                // Ao clicar no botão de editar
+                let data_id = button.getAttribute('data_id');
+
+                let statusObra2 = document.querySelector(`#status_obra_${data_id}`).textContent.trim();
+                // console.log('status: ', statusObra2);
+
+                // pega a posição
+                if (statusObra2 == '1'){
+                    obra_ativada = 1;
+                    posicaoObra2 = document.querySelector(`#posicao_obra_${data_id}`).textContent.trim();
+
+                    // pega a linha de obras ativas
+                    let linha_obras_ativas = document.getElementById('adm_obras_linha_obras_ativas'); 
+                    
+                    // pega todas as obras ativas
+                    //let obras = linha_obras_ativas.querySelectorAll('.adm_obras_obra');
+
+                    if (posicaoObra2 == 'horizontal'){
+                        tamanho_obras.push('64vw'); // 64vw
+                        document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
+                    } else if (posicaoObra2 == 'vertical'){
+                        tamanho_obras.push('38vw'); // 38vw
+                        document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_vertical';
+                    }
+
+                    // pega o tamanho de cada obra ativa
+                    // obras.forEach(obra => {
+                    //     tamanho_obras.push(window.getComputedStyle(obra).getPropertyValue("width"));
+                    // });
+
+                    // console.log('pos: ', posicaoObra2, '  status:', statusObra2);
+
+                    // EXIBINDO O TAMANHO
+                    // tamanho_obras.forEach(tamanho =>{
+                    //     console.log('tamanho: ', tamanho);
+                    // })
+                    // console.log('tamanho geral: ', tamanho_obras);
+                    
+                    // console.log('tamanho obras: ', tamanho_obras);
+                    // console.log('Qtd: ', qtd_obras);
+
+                    // novo valor pro grid
+                    let novo_valor_grid_template = '';
+
+                    // define o novo valor do grid
+                    tamanho_obras.forEach(tamanho =>{ // para cada obra em todas as obras
+                        tamanho = ' ' + tamanho;
+                        novo_valor_grid_template += tamanho;
+                    })
+
+                    // console.log('Valor final: ', novo_valor_grid_template);
+                    // aplica o novo valor
+                    // console.log('grid : ', linha_obras_ativas.style.gridTemplateColumns);    
+                    linha_obras_ativas.style.gridTemplateColumns = novo_valor_grid_template;
+                    // console.log('nova config :',linha_obras_ativas.style.gridTemplateColumns);
+                } else {
+                    obra_desativada = 1;
+                    posicaoObra2 = document.querySelector(`#posicao_obra_${data_id}`).textContent.trim();
+
+                    // pega a linha de obras ativas
+                    let linha_obras_inativas = document.getElementById('adm_obras_linha_obras_inativas'); 
+                    
+                    // linha_obras_inativas.style.backgroundImage = 'url(../src/cat.jpg);';
+                
+                    // pega todas as obras ativas
+                    //let obras = linha_obras_ativas.querySelectorAll('.adm_obras_obra');
+
+                    if (posicaoObra2 == 'horizontal'){
+                        tamanho_obras_inativas.push('64vw'); // 64vw
+                        document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
+                    } else if (posicaoObra2 == 'vertical'){
+                        tamanho_obras_inativas.push('38vw'); // 38vw
+                        document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_vertical';
+                    }
+
+                    // pega o tamanho de cada obra ativa
+                    // obras.forEach(obra => {
+                    //     tamanho_obras.push(window.getComputedStyle(obra).getPropertyValue("width"));
+                    // });
+
+                    // console.log('pos: ', posicaoObra2, '  status:', statusObra2);
+
+                    // EXIBINDO O TAMANHO
+                    // tamanho_obras.forEach(tamanho =>{
+                    //     console.log('tamanho: ', tamanho);
+                    // })
+                    // console.log('tamanho geral: ', tamanho_obras);
+                    
+                    // console.log('tamanho obras: ', tamanho_obras);
+                    // console.log('Qtd: ', qtd_obras);
+
+                    // novo valor pro grid
+                    let novo_valor_grid_template_inativadas = '';
+
+                    // define o novo valor do grid
+                    tamanho_obras_inativas.forEach(tamanho =>{ // para cada obra em todas as obras
+                        tamanho = ' ' + tamanho;
+                        novo_valor_grid_template_inativadas += tamanho;
+                    })
+
+                    // console.log('Valor final: ', novo_valor_grid_template);
+                    // aplica o novo valor
+                    // console.log('grid : ', linha_obras_ativas.style.gridTemplateColumns);    
+                    linha_obras_inativas.style.gridTemplateColumns = novo_valor_grid_template_inativadas;
+                    // console.log('nova config :',linha_obras_ativas.style.gridTemplateColumns);            
+                }
+            })
+
+            // mensagem pro caso de nao ter obras inativadas
+            console.log('lenght : ', linha_obras_inativas.lenght);
+            if (linha_obras_inativas == ''){
+                linha_obras_inativas = document.getElementById('adm_obras_linha_obras_inativas'); 
+            }
+            if (linha_obras_inativas.lenght == undefined && obra_desativada == 0){                    
+                let msg_vazio = document.createElement('div');
+
+                msg_vazio.textContent = "Nenhuma obra desativada";
+                msg_vazio.classList.add('adm_obras_desativadas');
+
+                // Insere a nova div no grid-pai
+                linha_obras_inativas.appendChild(msg_vazio);
+            }
+
+
+            // mensagem pro caso de nao ter obras ativadas
+            if (linha_obras_ativas == ''){
+                linha_obras_ativas = document.getElementById('adm_obras_linha_obras_ativas'); 
+            }
+            if (linha_obras_ativas.lenght == undefined && obra_ativada == 0){                    
+                let msg_vazio2 = document.createElement('div');
+
+                msg_vazio2.textContent = "Nenhuma obra ativada";
+                msg_vazio2.classList.add('adm_obras_desativadas');
+
+                // Insere a nova div no grid-pai
+                linha_obras_ativas.appendChild(msg_vazio2);
+            }
+
             const parametros = new URLSearchParams(window.location.search);
             if (parametros.has('status')){
+                console.log('2');
                 const status = parametros.get('status');
                 
                 if (status === 'sucesso'){

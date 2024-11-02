@@ -29,18 +29,35 @@ a {
 .adm_obras_linha_obras {
   overflow-x: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5fr 1fr;
   width: auto;
   gap: 2vw;
 }
 
-.adm_obras_obra {
-  width: 40vw;
+.adm_obras_obra_horizontal {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  height: 35vw;
+  grid-template-columns: 45vw 15vw;
   background-color: #233431;
   padding: 2vw;
   border-radius: 25px;
+}
+
+.adm_obras_obra_vertical {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 18vw 15vw;
+  background-color: #233431;
+  padding: 2vw;
+  border-radius: 25px;
+}
+
+.adm_obras_desativadas {
+  text-indent: 2vw;
+  font-size: 3vw;
+  width: 100%;
+  height: 100%;
 }
 
 .adm_obras_obra_info_inicial {
@@ -160,13 +177,34 @@ a {
   background-color: #6DA097;
 }
 
-.main_adm_obra_edit .informacoes {
+.main_adm_obra_edit_horizontal {
+  visibility: hidden;
+  padding: 2vw;
+  display: grid;
+  grid-template-rows: auto;
+  position: fixed;
+  width: 90vw;
+  height: auto;
+  top: 20vh;
+  left: 5vw;
+  border: 1vw solid #233431;
+  border-radius: 20px;
+  background-color: #6DA097;
+}
+
+.informacoes_edit {
   display: grid;
   grid-template-columns: 15vw 1fr;
   margin-top: 1vw;
 }
 
-.informacoes .descricao {
+.informacoes_edit_horizontal {
+  display: grid;
+  grid-template-columns: 45vw 1fr;
+  margin-top: 1vw;
+}
+
+.informacoes_edit .descricao, .informacoes_edit_horizontal .descricao {
   display: grid;
   grid-template-rows: auto;
   gap: 1vw;
@@ -283,7 +321,7 @@ label {
   margin-left: 1vw;
 }
 
-.informacoes .upload_img {
+.informacoes_edit .upload_img, .informacoes_edit_horizontal .upload_img {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -309,7 +347,7 @@ label {
   cursor: pointer;
 }
 
-.main_adm_obra_edit .dados {
+.main_adm_obra_edit .dados, .main_adm_obra_edit_horizontal .dados {
   display: grid;
   grid-template-columns: 1fr 8vw 8vw;
 }
@@ -423,10 +461,40 @@ input[type=submit]:hover {
   border-left: 0.6vw solid #8BCCC1;
 }
 
+.adm_obras_adicionar_obra {
+  margin-top: 2vw;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.adicionar_obra {
+  text-indent: 0;
+  margin-left: 0;
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  background-color: #233431;
+  border-radius: 15px;
+  border: none;
+  border-bottom: 0.4vw solid #8BCCC1;
+  border-left: 0.4vw solid #8BCCC1;
+  cursor: pointer;
+  font-size: 1.4vw;
+}
+
+.adicionar_obra:hover {
+  background-color: #8BCCC1;
+  border-bottom: 0.4vw solid #233431;
+  border-left: 0.4vw solid #233431;
+}
+
 .main_adm_obra_adicionar {
   padding: 2vw;
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: 1fr;
   position: fixed;
   width: 65vw;
   height: auto;
