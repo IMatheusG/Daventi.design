@@ -7,7 +7,7 @@ function abrir_edicao_obra() {
     
     const animationOn = 'slideIn_obra 1.2s forwards'; // Using camelCase for CSS property
     const animationOn_main = 'opacityOff 1.2s forwards';
-    const edit_closed = editAberto.style.visibility === 'hidden';  // Check for open state
+    const edit_closed = !editAberto.style.visibility || editAberto.style.visibility === 'hidden';  // Check for open state
 
     if (edit_closed) {
         // editAberto.style.width = '1px'; // Set desired width on opening
@@ -47,8 +47,8 @@ function abrir_add_obra() {
     // redefinir edit_closed e edit_aberto
     const animationOn = 'slideIn_obra 1.2s forwards'; // Using camelCase for CSS property
     const animationOn_main = 'opacityOff 1.2s forwards';
-    const edit_closed = addAberto.style.visibility === 'hidden';  // Check for open state
-
+    const edit_closed = !addAberto.style.visibility || addAberto.style.visibility === 'hidden';
+    
     if (edit_closed) {
         // editAberto.style.width = '1px'; // Set desired width on opening
         addAberto.style.animation = animationOn; // Apply animation for opening

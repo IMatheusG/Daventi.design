@@ -187,17 +187,17 @@
                     </div>
                     <div class="texto">
                         <label for="descricao_edit"> Descrição </label>
-                        <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
+                        <textarea id="desc_obra_edit" class="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
                     </div>
                 </div>                
             </div>
             <div class="dados">
                 <div class="id_e_posicao">
                     <div class="texto">
-                        ID: <input type="text" id="id_input" readonly name="id_obra_input">
+                        ID: <input type="text" id="id_input" class="id_input" readonly name="id_obra_input">
                     </div>
                     <div class="posicao">
-                        <input type="checkbox" id="posicao_check" name="posicao_obra" value="horizontal"> 
+                        <input type="checkbox" id="posicao_check" class="posicao_check" name="posicao_obra" value="horizontal"> 
                         <p>
                             Imagem horizontal
                         </p>
@@ -220,24 +220,24 @@
         </form> 
 
         <!-- form add -->
-        <form class="main_adm_obra_edit" id="obra_add" action="./verificar_edit_obra.php" method="POST" enctype="multipart/form-data">
+        <form class="main_adm_obra_adicionar" id="obra_add" action="./verificar_add_obra.php" method="POST" enctype="multipart/form-data">
             <div class="informacoes_edit" id="informacoes_edit">
                 <div class="upload_img">
-                    <img src="" alt="" id="imagem_obra_edit">                    
+                    <img src="" alt="" id="id">                    
                     <img src="../src/upload_icon.png" alt="" class="upload_icon">
-                    <input type="file" name="input_edit_img_name" id="input_edit_img">
+                    <input type="file" name="input_add_img_name" id="input_edit_img" required>
                 </div>                
                 <div class="descricao">
                     <div class="informacoes_superior">
                         <div class="titulo">
                             <div class="input_titulo">
                                 <label for="titulo_obra"> Titulo </label>
-                                <input type="text" value="" name="titulo_obra" id="edit_titulo_obra">    
+                                <input type="text" value="" name="titulo_obra">    
                             </div>
                             
                             <div class="tipo_obra">
                                 <label for="tipo_obra"> Tipo </label>
-                                <select name="tipo_obra" id="tipo_obra_edit">
+                                <select name="tipo_obra">
                                     <option selected disabled>
                                         
                                     </option>
@@ -261,36 +261,24 @@
                     </div>
                     <div class="texto">
                         <label for="descricao_edit"> Descrição </label>
-                        <textarea id="desc_obra_edit" rows="auto" name="descricao_edit">  </textarea>
+                        <textarea id="desc_obra_edit" class="desc_obra_edit"rows="auto" name="descricao_edit">  </textarea>
                     </div>
                 </div>                
             </div>
             <div class="dados">
-                <div class="id_e_posicao">
-                    <div class="texto">
-                        ID: <input type="text" id="id_input" readonly name="id_obra_input">
-                    </div>
+                <div class="id_e_posicao">                    
                     <div class="posicao">
-                        <input type="checkbox" id="posicao_check" name="posicao_obra" value="horizontal"> 
+                        <input type="checkbox" class="posicao_check" name="posicao_obra" value="horizontal"> 
                         <p>
                             Imagem horizontal
                         </p>
                     </div>
                 </div>                
-                <div class="inativar" onclick="salvarDados()" id='salvar_obra'>
-                    Salvar
+                <script src="../js/adm_adicionar_obra.js"></script>
+                <div class="inativar" onclick="adicionarObra()">
+                    Adicionar
                 </div>
-                <div class="inativar" onclick="desativarObraJs()" id='inativar_obra'>
-                    Inativar
-                </div>
-                <div class="inativar" onclick="reativarObraJs()" id='reativar_obra'>
-                    Reativar
-                </div>
-            </div>
-            <input class="inputs_inativados" id="edit_inativar_obra" name="status_obra">
-            <input class="inputs_inativados" id="edit_reativar_obra" name="status_obra_reativar">
-            <input class="inputs_inativados" id="edit_salvar_dados" name='salvar_dados'>
-            <input class="inputs_inativados" id="edit_imagem_obra" name="imagem_obra">
+            </div>            
         </form>
         <header>
             <h1>
@@ -353,17 +341,17 @@
                 <div class="navegacao">
                     <ul> <h2> Navegação </h2> </ul>
                     <ul> 
-                        <a href="user_home.html">
+                        <a href="adm_clientes.php">
                             Clientes
                         </a>    
                     </ul>
                     <ul>
-                        <a href="./user_portfolio.html">
+                        <a href="adm_obras.php">
                             Obras
                         </a>
                     </ul>
                     <ul>
-                        <a href="./user_perfil.html">
+                        <a href="adm_relatorio.php">
                             Relatório
                         </a>    
                     </ul>
@@ -544,6 +532,8 @@
                     alert('Arquivo enviado com sucesso');
                 } else if (status === 'sucesso_reativar'){ 
                     alert('Obra reativada com sucesso');
+                } else if (status === 'sucesso_add'){ 
+                    alert('Obra adicionada com sucesso');
                 } else {
                     alert(status);
                 }
