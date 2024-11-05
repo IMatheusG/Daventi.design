@@ -67,7 +67,7 @@ a {
 
 .adm_obras_obra_info_inicial img {
   width: 100%;
-  height: 100%;
+  height: 25vw;
 }
 
 .adm_obras_obra_info_inicial p {
@@ -122,6 +122,25 @@ a {
 .inputs_inativados {
   visibility: hidden;
   display: none;
+}
+
+.inputs_desativados {
+  visibility: hidden;
+  display: none;
+}
+
+.id_input:hover {
+  border: none;
+  border-bottom: none;
+  border-left: none;
+  pointer-events: none;
+}
+
+.id_input:hover {
+  border: none;
+  border-bottom: none;
+  border-left: none;
+  pointer-events: none;
 }
 
 @keyframes slideIn_obra {
@@ -210,7 +229,7 @@ a {
   gap: 1vw;
 }
 
-#desc_obra_edit {
+.desc_obra_edit {
   background-color: #6DA097;
   border: 0.3vw solid #233431;
   border-bottom: 0.6vw solid #233431;
@@ -327,6 +346,11 @@ label {
   justify-content: center;
 }
 
+.informacoes_edit_horizontal .upload_img #imagem_obra_edit {
+  width: 45vw;
+  height: 25vw;
+}
+
 .upload_icon {
   width: 10vw;
   height: 10vw;
@@ -378,13 +402,13 @@ label {
   margin-top: 0.3vw;
 }
 
-#posicao_check {
+.posicao_check {
   width: 3vw;
   height: 1.5vw;
   margin-left: -0.8vw;
 }
 
-#id_input {
+.id_input {
   outline: none;
   border-radius: 0px;
   font-size: 1.6vw;
@@ -455,7 +479,7 @@ input[type=submit]:hover {
   font-family: "Official_Book";
 }
 
-#desc_obra_edit:hover {
+.desc_obra_edit:hover {
   border: 0.3vw solid #8BCCC1;
   border-bottom: 0.6vw solid #8BCCC1;
   border-left: 0.6vw solid #8BCCC1;
@@ -492,6 +516,7 @@ input[type=submit]:hover {
 }
 
 .main_adm_obra_adicionar {
+  visibility: hidden;
   padding: 2vw;
   display: grid;
   grid-template-rows: 1fr;
@@ -513,9 +538,6 @@ input[type=submit]:hover {
 
 .main_adm_obra_adicionar .dados {
   display: grid;
-  grid-template-columns: 1fr 8vw 8vw;
-}
-
-#teste {
-  background-color: #8BCCC1;
+  grid-template-columns: 1fr 8vw;
+  align-items: center;
 }/*# sourceMappingURL=estilo_adm_obra.css.map */
