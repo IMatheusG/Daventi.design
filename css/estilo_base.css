@@ -3,8 +3,8 @@
 }
 
 @font-face {
-  font-family: "Official_Book";
-  src: url(../fonts/Official/OfficialBook.ttf) format("truetype");
+  font-family: "Montserrat";
+  src: url(../fonts/montserrat-webfont/Montserrat-Regular.woff) format("truetype");
   font-weight: 500;
   font-style: normal, sans-serif;
 }
@@ -23,8 +23,8 @@
 body {
   background-color: #6DA097;
   color: rgba(255, 255, 255, 0.7882352941);
-  font-size: 1.6vw;
-  font-family: "Official_Book";
+  font-size: 1.5vw;
+  font-family: "Montserrat";
 }
 
 section, main {
@@ -128,7 +128,7 @@ h1:hover {
 
 #guest_fechar_menu {
   display: flex;
-  font-size: 10vw;
+  font-size: 7vw;
   justify-content: center;
   align-items: center;
 }
@@ -142,6 +142,8 @@ h1:hover {
   width: 5vw;
   border-radius: 25px;
   padding: 3vw;
+  padding-top: 2vw;
+  padding-bottom: 3.5vw;
   cursor: pointer;
 }
 
@@ -252,4 +254,9 @@ input[type=submit]:hover {
   background-color: #8BCCC1;
   border-bottom: 0.4vw solid #233431;
   border-left: 0.4vw solid #233431;
+}
+
+.inputs_inativados {
+  visibility: hidden;
+  display: none;
 }/*# sourceMappingURL=estilo_base.css.map */

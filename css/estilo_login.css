@@ -65,7 +65,7 @@ main {
   border-radius: 25px;
   padding: 1.5vw;
   text-align: center;
-  height: 11vw;
+  height: auto;
 }
 
 .login_cta_cadastro .login_cta_cadastro_btn p:hover {
@@ -79,7 +79,7 @@ main {
   margin-right: auto;
   background-color: #233431;
   height: 4.5vw;
-  width: 15vw;
+  width: 18vw;
   border-radius: 25px;
   border-bottom: 0.4vw solid #8BCCC1;
   border-left: 0.4vw solid #8BCCC1;

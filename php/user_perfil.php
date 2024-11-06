@@ -3,49 +3,75 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/reset.css" type="text/css">
-        <link rel="stylesheet" href="./css/estilo_base.css" type="text/css">
-        <link rel="stylesheet" href="./css/estilo_user_perfil.css" type="text/css">
+        <title> Perfil </title>
+        <link rel="stylesheet" href="../css/reset.css" type="text/css">
+        <link rel="stylesheet" href="../css/estilo_base.css" type="text/css">
+        <link rel="stylesheet" href="../css/estilo_user_perfil.css" type="text/css">
     </head>
-    <body>
+    <?php 
+        session_start();
+    ?>
+    <body id="body">
         <main id="main_user">
             <div class="user_perfil_card">
                 <div class="user_perfil_imagem">
-                    <img src="./src/cat.jpg" alt="">
+                    <img src="<?php echo $_SESSION['imagem_perfil_user']; ?>" alt="">
                 </div>
                 <div class="user_perfil_descricao">
                     <div class="nome">
-                        Nome random
+                        <?php echo $_SESSION['nome_user']; ?>
                     </div>
                     <div class="email">
-                        email random
+                        <?php echo $_SESSION['email_user']; ?>
                     </div>
                 </div>                
-                <p onclick="abrir_modal_editar()">
+                <p onclick="abrir_modal_editar()" class="edit_perfil">
                     Editar perfil
                 </p>             
                 
             </div>
-            <div class="user_perfil_opcoes">
-                <div class="user_perfil_favoritar">
-                    <p>
-                        Favoritar
-                    </p>
-                </div>
-                <div class="user_perfil_desativacao">
-                    <p>
+            <div class="user_perfil_opcoes">                
+                <form class="user_perfil_desativacao" method="POST" action="./verificar_edit_perfil.php" id="desativar_conta">
+                    <p onclick="desativar_perfil()" class="cursor">
                         Desativar conta
                     </p>
-                </div>
+                    <input class="inputs_inativados" id="inativar_perfil" name="status_user" value='0'>
+                </form>
             </div>
         </main>
+        <form class="user_perfil_editar" method="POST" action="./verificar_edit_perfil.php" enctype="multipart/form-data" id="form_edit_perfil">
+            <div class="user_perfil_modal_editar" id="edit_perfil">
+                <div class="img_edit">
+                    <img src="<?php echo $_SESSION['imagem_perfil_user'] ?>" class="img_edit_img">
+                    <img src="../src/upload_icon.png" class="upload_icon">
+                    <input type="file" class="input_edit_img" name="nova_img">
+                </div>                
+                <div class="conteudo">
+                    <div class="close">
+                        <p onclick="fechar_edit_perfil()">
+                            X
+                        </p>
+                    </div>
+                    <div class="nome">
+                        <label for="novo_nome">
+                            Nome:
+                        </label>
+                        <input type="text" name="novo_nome" value="<?php echo $_SESSION['nome_user'] ?>">
+                    </div>
+                    <div class="salvar_edit">
+                        <p onclick="enviarEditPerfil()" class="salvar_edit_p">
+                            Salvar alteração
+                        </p>
+                    </div>
+                </div>                        
+            </div>     
+        </form>
         <header>
             <h1>
                 Daventi
             </h1>
             <div id="guest_menu" onclick="abrirMenu()">
-                <img src="./src/menu_icon.png" width="100%" height="100%" >
+                <img src="../src/menu_icon.png" width="100%" height="100%" >
             </div>
             <div id="guest_menu_aberto">
                 <div id="guest_fechar_menu">
@@ -82,7 +108,7 @@
                     </a>  
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./guest_landing_page.html" onclick="fecharMenu()">
+                    <a href="../guest_landing_page.html" onclick="fecharMenu()">
                         <h2>
                             Sair
                         </h2>      
@@ -108,8 +134,8 @@
                         Conecte-se conosco
                     </p>
                     <div class="redes_imgs">
-                        <img src="./src/instagram_icon.png">
-                        <img src="./src/kofi_icon.png" id="kofi">
+                        <img src="../src/instagram_icon.png">
+                        <img src="../src/kofi_icon.png" id="kofi">
                     </div>
                     
                 </div>
@@ -142,34 +168,19 @@
                 © Um projeto do grupo Daventi 2024
             </div>
         </footer>
-        <div class="user_perfil_editar">
-            <div class="user_perfil_modal_editar">
-                <img src="./src/cat.jpg" alt="">
-                <div class="conteudo">
-                    <div class="close">
-                        X
-                    </div>
-                    <div class="nome">
-                        <label for="novo_nome">
-                            Nome
-                        </label>
-                        <input type="text" name="novo_nome">
-                    </div>
-                    <div class="salvar_edit">
-                        <p>
-                            Salvar alteração
-                        </p>
-                    </div>
-                </div>                        
-            </div>       
-        </div>
-        <script src="./js/guest_menu.js"></script>
-        <script src="./js/user_perfil_modals.js"></script>
+        
+        <script src="../js/guest_menu.js"></script>
+        <script src="../js/user_perfil.js"></script>
     </body>
+    <script>
+        const parametros = new URLSearchParams(window.location.search);
+        if (parametros.has('status')){
+            const status = parametros.get('status');
+            if (status === 'sucesso_edit'){
+                alert('Editado com sucesso!');
+            }
+            const newUrl = window.location.origin + window.location.pathname;
+            window.history.replaceState({}, document.title, newUrl);
+        }
+    </script>
 </html>
-
-
-
-<!-- 
-    O design base está pronto, falta fazer as modals e tudo relacionado as suas funcionalidades. 
--->

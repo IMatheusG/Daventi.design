@@ -315,7 +315,7 @@
                     </a>  
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./guest_landing_page.html" onclick="fecharMenu()">
+                    <a href="../guest_landing_page.html" onclick="fecharMenu()">
                         <h2>
                             Sair
                         </h2>      

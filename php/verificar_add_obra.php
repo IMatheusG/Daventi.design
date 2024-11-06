@@ -9,7 +9,7 @@
         include('conexao.php');
 
         if ($error)
-            header("Location: adm_obras.php?erro_enviar_arquivo");
+            header("Location: adm_obras.php?status=erro_enviar_arquivo");
 
         $pasta = '/arquivos'; // path
         $novo_nome_do_arquivo = uniqid(); // id único
@@ -18,7 +18,7 @@
         // echo $extensao;
 
         if($extensao != 'jpg' && $extensao != 'png') 
-            header("Location: adm_obras.php?erro_extensao");
+            header("Location: adm_obras.php?status=erro_extensao");
 
         global $path;
         $path = '.' . $pasta . '/' . $novo_nome_do_arquivo . '.' . $extensao; // caminho completo do arquivo

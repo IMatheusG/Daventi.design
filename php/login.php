@@ -100,13 +100,15 @@
                     var status = parametros.get('status');
                     if (status === '1'){
                         alert('Cadastro realizado com sucesso! Digite seu dados cadastrados para realizar o login');                     
-                    }
-                    if (status === '2'){
+                    } else if (status === '2'){
                         alert('Email ou senha incorreto');
-                    }
-                    if (status === '3'){
+                    } else if (status === '3'){
                         alert('Preencha todos os campos para realizar o login');
-                    }
+                    } else if (status === 'user_inativado'){
+                        alert('Conta desativada com sucesso');
+                    } else if (status === 'conta_desativada'){
+                        alert('Esta conta está desativada, por favor utilize outra');
+                    } 
                     const newUrl = window.location.origin + window.location.pathname;
                     window.history.replaceState({}, document.title, newUrl);
                 }
