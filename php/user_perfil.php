@@ -80,28 +80,28 @@
                     </p>
                 </div>
                 <div class="guest_op_menu"> 
-                    <a href="./user_home.html" onclick="fecharMenu()">
+                    <a href="../user_home.html" onclick="fecharMenu()">
                         <h2>
                             Obras em destaque
                         </h2>      
                     </a>              
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./user_portfolio.html" onclick="fecharMenu()">
+                    <a href="./user_portfolio.php" onclick="fecharMenu()">
                         <h2>
                             Portfólio
                         </h2>      
                     </a>                      
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./user_perfil.html" onclick="fecharMenu()">
+                    <a href="./user_perfil.php" onclick="fecharMenu()">
                         <h2>
                             Perfil
                         </h2>      
                     </a>  
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./user_sobre_nos.html" onclick="fecharMenu()">
+                    <a href="../user_sobre_nos.html" onclick="fecharMenu()">
                         <h2>
                             Sobre nós
                         </h2>      
@@ -142,22 +142,22 @@
                 <div class="navegacao">
                     <ul> <h2> Navegação </h2> </ul>
                     <ul> 
-                        <a href="user_home.html">
+                        <a href="../user_home.html">
                             Obras em destaque
                         </a>    
                     </ul>
                     <ul>
-                        <a href="./user_portfolio.html">
+                        <a href="./user_portfolio.php">
                             Portfólio
                         </a>
                     </ul>
                     <ul>
-                        <a href="./user_perfil.html">
+                        <a href="./user_perfil.php">
                             Perfil
                         </a>    
                     </ul>
                     <ul>
-                        <a href="./user_sobre_nos.html">
+                        <a href="../user_sobre_nos.html">
                             Sobre a Daventi Design
                         </a>
                     </ul>

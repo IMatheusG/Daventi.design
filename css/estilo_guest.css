@@ -132,6 +132,10 @@ a {
   background-color: #8BCCC1;
 }
 
+#main_sobre {
+  margin-top: 12vw;
+}
+
 .guest_h2_sobre {
   width: 25vw;
   text-indent: 0.3vw;
