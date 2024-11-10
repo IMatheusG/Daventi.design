@@ -1,0 +1,215 @@
+main {
+  margin-top: 12vw;
+  display: grid;
+  grid-template-columns: 15vw 1fr;
+  gap: 4vw;
+}
+
+.portfolio_filtros {
+  width: 100%;
+  height: 35vw;
+  background-color: #233431;
+  border-radius: 25px;
+  padding: 2vw;
+  overflow: none;
+}
+
+.portfolio_filtros p {
+  margin-bottom: 1.5vw;
+}
+
+.filtro {
+  margin-bottom: 2vw;
+}
+
+.porfolio_obras {
+  width: 100%;
+  height: 35vw;
+  overflow-y: auto;
+  background-color: #233431;
+  border-radius: 25px;
+  border: 2vw solid #233431;
+  border-top: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.obras_linha {
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3vw;
+  height: 25vw;
+  padding: 2vw;
+  padding-left: 0vw;
+  padding-right: 0vw;
+}
+
+.obras_linha img {
+  width: 100%;
+  height: 100%;
+}
+
+.obras_linha img {
+  width: 100%;
+  height: 100%;
+}
+
+.obra_vertical {
+  width: 100%;
+  height: 28vw;
+  background-color: #8BCCC1;
+  cursor: pointer;
+  grid-column: span 1;
+}
+
+.obra_vertical:hover {
+  opacity: 0.4;
+}
+
+.obra_horizontal {
+  width: 100%;
+  height: 28vw;
+  background-color: #8BCCC1;
+  cursor: pointer;
+  grid-column: span 1;
+}
+
+.obra_horizontal:hover {
+  opacity: 0.4;
+}
+
+.modal_detalhes_obra {
+  visibility: hidden;
+  width: 80%;
+  height: auto;
+  position: fixed;
+  top: 9vw;
+  left: 10%;
+  display: grid;
+  grid-template-rows: 4vw 1fr;
+  background-color: #233431;
+  border: 1vw solid #8BCCC1;
+  padding: 2vw;
+  border-radius: 15px;
+}
+
+.informacoes_obra_horizontal {
+  display: grid;
+  grid-template-columns: 45vw 1fr;
+  gap: 1vw;
+}
+
+.titulo_e_close {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
+  text-align: center;
+  justify-content: center;
+}
+
+.titulo_e_close .close {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.titulo_e_close .close p {
+  position: absolute;
+  padding: 0.5vw;
+  width: 3vw;
+  font-size: 2.5vw;
+  margin-bottom: 2vw;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.titulo_e_close .close p:hover {
+  background-color: #8BCCC1;
+}
+
+.imagem_e_categoria {
+  display: grid;
+  grid-template-rows: 1fr 3vw;
+}
+
+.imagem_obra img {
+  width: 45vw;
+  height: 25vw;
+}
+
+.categoria_obra {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
+  gap: 5vw;
+  align-items: center;
+}
+
+.categoria_obra .favorito {
+  justify-content: right;
+}
+
+.categoria_obra .favorito img {
+  padding: 0.5vw;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes slideIn_obra {
+  0% {
+    top: -50vh;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    top: 20vh;
+  }
+}
+@keyframes slideOff_obra {
+  100% {
+    top: -50vh;
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+    visibility: visible;
+    top: 20vh;
+  }
+}
+@keyframes opacityOff {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes opacityOn {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0.3;
+  }
+}
+input[type=radio] {
+  width: 1vw;
+  height: 1vw;
+  border: 2px solid #8BCCC1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #8BCCC1;
+  color: #8BCCC1;
+  font-weight: bold;
+  text-align: center;
+}
+
+input[type=radio]:checked + label {
+  border-bottom: 0.15vw solid #8BCCC1;
+}
+
+label:hover {
+  border-bottom: 0.15vw solid #8BCCC1;
+  color: white;
+}/*# sourceMappingURL=estilo_user_portfolio.css.map */

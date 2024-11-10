@@ -18,7 +18,7 @@
                 $_SESSION['nome_user'] = $linha['nome'];
                 $_SESSION['imagem_perfil_user'] = $linha['imagem_perfil'];
                 $_SESSION['status_user'] = $linha['status'];
-
+                $_SESSION['favoritos_user']  = '';
                 if ($_SESSION['status_user'] == 0){
                     $conta_desativada = true;
                     break;

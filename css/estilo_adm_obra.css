@@ -38,7 +38,7 @@ a {
   width: 100%;
   display: grid;
   height: 35vw;
-  grid-template-columns: 45vw 15vw;
+  grid-template-columns: 45vw 18vw;
   background-color: #233431;
   padding: 2vw;
   border-radius: 25px;
@@ -90,11 +90,14 @@ a {
   text-indent: -0.8vw;
 }
 
-.descricao_obra .texto {
+.descricao_obra .texto b {
+  display: flex;
   white-space: normal;
   word-wrap: break-word;
   overflow-y: auto;
-  max-height: 12.5vw;
+  height: 17.5vw;
+  max-width: 100%;
+  max-height: 17.5vw;
   font-size: 1.2vw;
 }
 
@@ -215,12 +218,14 @@ a {
   display: grid;
   grid-template-columns: 15vw 1fr;
   margin-top: 1vw;
+  gap: 1vw;
 }
 
 .informacoes_edit_horizontal {
   display: grid;
   grid-template-columns: 45vw 1fr;
   margin-top: 1vw;
+  gap: 1vw;
 }
 
 .informacoes_edit .descricao, .informacoes_edit_horizontal .descricao {
@@ -256,7 +261,7 @@ a {
   display: flex;
   align-self: center;
   justify-content: center;
-  font-size: 4vw;
+  font-size: 3.1vw;
   margin-top: -2vw;
   margin-left: 1vw;
   width: 2.5vw;
@@ -413,7 +418,7 @@ label {
   border-radius: 0px;
   font-size: 1.6vw;
   text-indent: -0.2vw;
-  margin-top: -0.2vw;
+  margin-top: 0.1vw;
   text-indent: 0;
   border: none;
   width: auto;
@@ -463,6 +468,7 @@ input[type=submit]:hover {
 
 #reativar_obra {
   display: none;
+  width: 7.5vw;
 }
 
 .texto label {
@@ -476,7 +482,7 @@ input[type=submit]:hover {
 
 .texto textarea {
   margin-top: 2vw;
-  font-family: "Official_Book";
+  font-family: "Montserrat";
 }
 
 .desc_obra_edit:hover {

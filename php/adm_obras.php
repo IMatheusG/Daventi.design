@@ -47,8 +47,8 @@
                                 </h2>
                             </div>                            
                             <div class='texto' id="descricao_obra_<?php echo $obra['id_obra'] ?>">
-                                Descrição: <b > <?php echo $obra['descricao']?> </b>
-                            </div>
+                                Descrição: <b> <?php echo $obra['descricao']?> </b>
+                            </div>                            
                         </div>
                         <div class="editar_btn" onclick="abrir_edicao_obra()" data_id='<?php echo $obra['id_obra'] ?>'>
                             <img src="../src/edit_icon.png" alt="">
@@ -393,7 +393,7 @@
                     //let obras = linha_obras_ativas.querySelectorAll('.adm_obras_obra');
 
                     if (posicaoObra2 == 'horizontal'){
-                        tamanho_obras.push('64vw'); // 64vw
+                        tamanho_obras.push('67vw'); // 64vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
                     } else if (posicaoObra2 == 'vertical'){
                         tamanho_obras.push('38vw'); // 38vw
@@ -443,7 +443,7 @@
                     //let obras = linha_obras_ativas.querySelectorAll('.adm_obras_obra');
 
                     if (posicaoObra2 == 'horizontal'){
-                        tamanho_obras_inativas.push('64vw'); // 64vw
+                        tamanho_obras_inativas.push('67vw'); // 64vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
                     } else if (posicaoObra2 == 'vertical'){
                         tamanho_obras_inativas.push('38vw'); // 38vw
