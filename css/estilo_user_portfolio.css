@@ -1,3 +1,8 @@
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7882352941);
+}
+
 main {
   margin-top: 12vw;
   display: grid;

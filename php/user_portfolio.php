@@ -278,6 +278,9 @@
                             <div class="inputs_inativados" id="descricao_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['descricao'] ?> </div>
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
+
+                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+
                             <?php 
                             }
                             ?>
@@ -300,6 +303,9 @@
                             <div class="inputs_inativados" id="descricao_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['descricao'] ?> </div>
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
+
+                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+
                             <?php 
                             }
                             ?>
@@ -322,6 +328,10 @@
                             <div class="inputs_inativados" id="descricao_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['descricao'] ?> </div>
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
+
+                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+
+                            
                             <?php 
                             }
                             ?>
@@ -346,6 +356,8 @@
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div> 
 
                             <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+
+                            
                             <?php 
                             }
                             ?>
@@ -393,6 +405,22 @@
                     document.getElementById('modal_descricao').textContent = descricao;
                     document.getElementById('modal_tipo').textContent = tipo;
                     
+                    // alterando icon do fav de acordo com as obras favoritadas
+                    fav_icon = document.getElementById('fav_modal');                   
+                    console.log('id:  ', id) ;
+                    let id_user = document.getElementById(`id_user_${id}`).textContent;
+                    let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
+                    
+                    favoritos = [...new Set(favoritos)]; // excluindo duplicatas
+                    
+                    // console.log(favoritos);                    
+                    // console.log(id);
+                    
+                    if (favoritos.includes(Number(id))) {
+                        fav_icon.setAttribute('src', '../src/coracao_icon.png');    
+                    } else {                            
+                        fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
+                    }
                     
                     })
                 })
@@ -412,6 +440,24 @@
                     document.getElementById('modal_descricao').textContent = descricao;
                     document.getElementById('modal_tipo').textContent = tipo;
 
+                    // alterando icon do fav de acordo com as obras favoritadas
+                    fav_icon = document.getElementById('fav_modal');     
+                    console.log('id:  ', id) ;
+               
+                    let id_user = document.getElementById(`id_user_${id}`).textContent;
+                    console.log('id_user:  ', id_user) ;
+                    let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
+                    
+                    favoritos = [...new Set(favoritos)]; // excluindo duplicatas
+                    
+                    // console.log(favoritos);                    
+                    // console.log(id);
+                    
+                    if (favoritos.includes(Number(id))) {
+                        fav_icon.setAttribute('src', '../src/coracao_icon.png');    
+                    } else {                            
+                        fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
+                    }
                     })
                 })
             }
@@ -437,17 +483,16 @@
                     fav_icon = document.getElementById('fav_modal');                    
                     let id_user = document.getElementById(`id_user_${id}`).textContent;
                     let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
-                    let teste = obras_favoritadas;
+                    
                     favoritos = [...new Set(favoritos)]; // excluindo duplicatas
                     
-
-                    // CONTINUAR DAQUI ____ REVER O FUNCIONAMENTO PRA VER OQ FALTA
-
-                    console.log(favoritos);
-                    if (id in favoritos){
-                        fav_icon.setAttribute('src', '../src/coracao_icon.png')
-                    } else {
-                        fav_icon.setAttribute('src', '../src/coracao_off_icon.png')
+                    // console.log(favoritos);                    
+                    // console.log(id);
+                    
+                    if (favoritos.includes(Number(id))) {
+                        fav_icon.setAttribute('src', '../src/coracao_icon.png');    
+                    } else {                            
+                        fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
                     }
                 })
             })
@@ -475,7 +520,7 @@
             
             linha_obras.style.gridTemplateColumns = novo_valor_grid_template;
 
-              
+            
   
         </script>
     </body>

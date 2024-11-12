@@ -301,14 +301,14 @@
                     </a>              
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./adm_obras.html" onclick="fecharMenu()">
+                    <a href="./adm_obras.php" onclick="fecharMenu()">
                         <h2>
                             Obras
                         </h2>      
                     </a>                      
                 </div>
                 <div class="guest_op_menu">
-                    <a href="./adm_relatorio.html" onclick="fecharMenu()">
+                    <a href="./adm_relatorio.php" onclick="fecharMenu()">
                         <h2>
                             relatório
                         </h2>      

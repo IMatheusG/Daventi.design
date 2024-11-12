@@ -1,0 +1,103 @@
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7882352941);
+}
+
+.opcoes .redes {
+  align-items: center;
+}
+
+#guest_menu_aberto {
+  grid-template-rows: 6vw repeat(4, 1fr);
+}
+
+#main_relatorio {
+  margin-top: 12vw;
+}
+
+.titulo_relatorio_obras {
+  background-color: #233431;
+  padding: 2vw;
+  padding-bottom: 0px;
+  border-radius: 25px;
+  height: auto;
+  display: grid;
+  grid-template-rows: 3.5vw 2.8vw;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.relatorio_obras {
+  background-color: #233431;
+  padding: 2vw;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: grid;
+  grid-template-rows: 1fr;
+  height: auto;
+  max-height: 27.5vw;
+  border-bottom: 2vw solid #233431;
+  overflow-y: auto;
+}
+
+.primeiro_campo_thead {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.ultimo_campo_thead {
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+tbody th p {
+  height: 100%;
+  padding: 0.5vw;
+  background-color: #6DA097;
+  border: 1px solid #6DA097;
+  width: auto;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 0.5vw;
+  margin-right: 0.5vw;
+  margin-left: 0.5vw;
+}
+
+thead th p {
+  height: 100%;
+  padding: 0.5vw;
+  width: auto;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 0.5vw;
+  margin-right: 0.5vw;
+  margin-left: 0.5vw;
+}
+
+#relatorio_linhas tr:hover th p {
+  background-color: #8BCCC1;
+}
+
+#thead_off {
+  opacity: 0;
+}
+
+#thead_off th p {
+  padding: 0px;
+  height: 0px;
+}
+
+#thead_off p {
+  background-color: #6DA097;
+}
+
+.tabela tbody tr td {
+  border: 1px solid pink;
+  padding: 0.5vw;
+}
+
+.tabela {
+  max-height: 25vw;
+}/*# sourceMappingURL=estilo_adm_relatorio.css.map */
