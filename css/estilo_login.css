@@ -60,12 +60,18 @@ main {
   align-items: center;
 }
 
-.login_cta_cadastro p {
+#login_cta_p {
+  margin-left: auto;
+  margin-right: auto;
   background-color: #233431;
-  border-radius: 25px;
-  padding: 1.5vw;
-  text-align: center;
   height: auto;
+  width: auto;
+  border-radius: 25px;
+  padding: 2vw;
+}
+
+#login_cta_p p {
+  text-indent: 2vw;
 }
 
 .login_cta_cadastro .login_cta_cadastro_btn p:hover {
@@ -75,8 +81,11 @@ main {
 }
 
 .login_cta_cadastro_btn p {
-  margin-left: auto;
+  display: flex;
   margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
   background-color: #233431;
   height: 4.5vw;
   width: 18vw;

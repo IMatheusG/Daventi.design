@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
@@ -184,6 +184,313 @@
                         <div class="guest_texto">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo voluptatum atque, delectus sunt omnis officiis eos inventore cumque iste pariatur quisquam, vitae esse beatae ipsam consequuntur. Voluptatem, soluta voluptatum.
                             Iste consectetur eius quibusdam praesentium tenetur distinctio. Consequuntur delectus consectetur harum quod id tempora,
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        <header>
+            <h1>
+                Daventi
+            </h1>
+            <div id="guest_menu" onclick="abrirMenu()">
+                <img src="./src/menu_icon.png" width="100%" height="100%" >
+            </div>
+            <div id="guest_menu_aberto">
+                <div id="guest_fechar_menu">
+                    <p onclick="fecharMenu()">
+                        x
+                    </p>
+                </div>
+                <div class="guest_op_menu"> 
+                    <a href="#guest_nosso_trabalho" onclick="fecharMenu()">
+                        <h2>
+                            Nosso trabalho
+                        </h2>      
+                    </a>              
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_obras_destaque" onclick="fecharMenu()">
+                        <h2 id="margin_obra_destaque">
+                            Obras em destaque
+                        </h2>      
+                    </a>                      
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_sobre" onclick="fecharMenu()">
+                        <h2>
+                            Sobre a Daventi Design 
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_fundamentos" onclick="fecharMenu()">
+                        <h2>
+                            Nossos fundamentos
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="#guest_equipe" onclick="fecharMenu()">
+                        <h2>
+                            Conheça a equipe
+                        </h2>      
+                    </a>  
+                </div>
+                <div class="guest_op_menu">
+                    <a href="./php/login.php" onclick="fecharMenu()">
+                        <h2>
+                            Login
+                        </h2>      
+                    </a>  
+                </div>
+            </div>
+        </header>
+        <footer>
+            <div class="vazio">
+
+            </div>
+            <div class="opcoes">
+                <div class="vazio">
+
+                </div>
+                <div class="redes">
+                    <div class="texto">
+                        <h1>
+                            Daventi
+                        </h1>                           
+                    </div>
+                    <p>
+                        Conecte-se conosco
+                    </p>
+                    <div class="redes_imgs">
+                        <img src="./src/instagram_icon.png">
+                        <img src="./src/kofi_icon.png" id="kofi">
+                    </div>
+                    
+                </div>
+                <div class="navegacao">
+                    <ul> <h2> Navegação </h2> </ul>
+                    <ul> 
+                        <a href="#guest_nosso_trabalho">
+                            Nosso trabalho
+                        </a>    
+                    </ul>
+                    <ul>
+                        <a href="#guest_obras_destaque">
+                            Obras em destaque
+                        </a>
+                    </ul>
+                    <ul>
+                        <a href="#guest_sobre">
+                            Sobre a Daventi Design
+                        </a>    
+                    </ul>
+                    <ul>
+                        <a href="#guest_fundamentos">
+                            Nossos fundamentos
+                        </a>
+                    </ul>
+                    <ul>
+                        <a href="#guest_equipe">
+                            Conheça a equipe
+                        </a>
+                    </ul>
+                </div>
+                <div class="vazio"></div>
+            </div>
+            <div class="copyright">
+                © Um projeto do grupo Daventi 2024
+            </div>
+        </footer>
+        <script src="./js/guest_menu.js"></script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/reset.css" type="text/css">
+        <link rel="stylesheet" href="./css/estilo_base.css" type="text/css">
+        <link rel="stylesheet" href="./css/estilo_guest.css" type="text/css">
+        <title>Daventi Design</title>
+    </head>
+    <body>        
+        <div class="guest_img_fundo">
+            <img src="./src/bg_landscape.png">
+        </div>
+        <main>            
+            <section class="guest_nosso_trabalho">
+                <div id="guest_nosso_trabalho" class="guest_link">
+                    
+                </div>
+                <div>
+                    <h2 class="guest_h2_nosso_trabalho">
+                        Nosso trabalho
+                    </h2>
+                </div>
+                <div class="texto">
+                    <p>
+                     Daventi é a nossa plataforma para exposição de nossas artes, muitas seguindo a estética minimalista. Por enquanto você só tem acesso ao informativo do site, faça login para visualizar as obras e favoritá-las!
+                    </p>
+                </div>
+            </section>
+            <section class="guest_obras_destaque">
+                <div id="guest_obras_destaque" class="guest_link">
+                    
+                </div>
+                <div>
+                    <h2 class="guest_h2_obras_destaque">
+                        Obras em destaque
+                    </h2>
+                </div>
+                <div class="guest_obras">
+                    <div class="guest_obra">
+                        <img src="./src/obras/epiphany.jpg">
+                    </div>
+                    <div class="guest_obra">
+                        <img src="./src/obras/ikigai.jpg">
+                    </div>
+                    <div class="guest_obra">
+                        <img src="./src/obras/esteta.jpg">
+                    </div>
+                </div>           
+                
+                <a href="./php/login.php">
+                    <div class="guest_cta">                        
+                        <p>
+                            Lembre-se, para ter acesso ao site completo, você precisa fazer login.<br>
+                            Clique em mim!
+                        </p>                        
+                    </div>    
+                </a>                   
+            </section>
+            <section class="guest_sobre">
+                <div id="guest_sobre" class="guest_link">
+                    
+                </div>
+                <div>
+                    <h2 class="guest_h2_sobre">
+                        Sobre o Daventi Design
+                    </h2>
+                </div>
+                <div class="guest_daventi">
+                    <img src="./src/dv_logowhite.svg">
+                    <div class="guest_texto">
+                        <p>Daventi Design foi fundado a partir de um projeto escolar, voltado para o mercado de Design Digital. </p>
+                        <p>O website de mesmo nome, nasceu a partir de comissões que eram realizadas através de redes sociais. </p>
+                        <p>Daventi busca o minimalismo, prometendo ter uma interface limpa e intuitiva.</p>
+                    </div>
+                </div>                
+                <div class="guest_frase">
+                    "O Design é a união de Arte e Ciência."
+                </div>
+            </section>
+
+            <section class="guest_fundamentos">
+                <div id="guest_fundamentos" class="guest_link">
+                    
+                </div>
+                <div>
+                    <h2 class="guest_h2_fundamentos">
+                        Nossos fundamentos
+                    </h2>
+                </div>
+                <div class="guest_cards_fundamentos">
+                    <div class="guest_mvv">
+                        <div class="guest_foto">
+                            <img src="./src/heart_icon.png" >
+                        </div>    
+                        <div class="guest_mvv_desc">
+                            <div class="guest_nome">
+                                <h2>
+                                    Planos
+                                </h2>
+                            </div>
+                            <div class="guest_desc">
+                               <p>Por enquanto a Daventi apenas busca expor um portfólio, aqueles interessados podem entrar em contato em nossas redes sociais para solicitar comissões. Futuramente, a plataforma suportará a venda de produtos sem precisar de terceiros!</p>
+                            </div>
+                        </div>                    
+                    </div>
+                    <div class="guest_mvv_mid">                        
+                        <div class="guest_mvv_desc">
+                            <div class="guest_nome">
+                                <h2>
+                                    Portfólio
+                                </h2>
+                            </div>
+                            <div class="guest_desc">
+                               <p>Interessado no nosso portfólio? Não deixe de realizar seu login para visualizá-lo! </p>
+                               <p>Entre em contato através de nossas redes sociais linkadas no rodapé do site, dê seu feedback ou realize sua comissão!</p>
+                            </div>
+                        </div>                    
+                        <div class="guest_foto">
+                            <img src="./src/books.png" >
+                        </div>    
+                    </div>
+                    <div class="guest_mvv">
+                        <div class="guest_foto">
+                            <img src="./src/nature_icon.png" >
+                        </div>    
+                        <div class="guest_mvv_desc">
+                            <div class="guest_nome">
+                                <h2>
+                                    Você Sabia?
+                                </h2>
+                            </div>
+                            <div class="guest_desc">
+                               <p> Daventi busca apoiar o ambiente e suas causas, futuramente lançaremos umas coleção tematizada ao meio ambiente e sustentabilidade. </p>
+                               <p> O minimalismo surgiu como um movimento anti consumismo, uma filosofia que a Daventi busca alcançar além da estética. </p>
+                            </div>
+                        </div>                    
+                    </div>        
+                </div> 
+            </section>
+
+            <section class="guest_equipe">
+                <div id="guest_equipe" class="guest_link">
+                    
+                </div>
+                <div>
+                    <h2 class="guest_h2_equipe"> 
+                        Conheça a equipe
+                    </h2>
+                </div>
+                <div class="guest_cards">
+                    <div class="guest_card">
+                        <div class="guest_nome">
+                            Ana
+                        </div>
+                        <div class="guest_icon">
+                            <img src="./src/megumini.png">
+                        </div>
+                        <div class="guest_texto">
+                           Designer
+                        </div>
+                    </div>
+                    <div class="guest_card">
+                        <div class="guest_nome">
+                            Stefani
+                        </div>
+                        <div class="guest_icon">
+                            <img src="./src/megumini.png">
+                        </div>
+                        <div class="guest_texto">
+                         Analista
+                        </div>
+                    </div>
+                    <div class="guest_card">
+                        <div class="guest_nome">
+                           Matheus
+                        </div>
+                        <div class="guest_icon">
+                            <img src="./src/megumini.png">
+                        </div>
+                        <div class="guest_texto">
+                        Programador
                         </div>
                     </div>
                 </div>

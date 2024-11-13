@@ -666,6 +666,16 @@
                 const newUrl = window.location.origin + window.location.pathname;
                 window.history.replaceState({}, document.title, newUrl);
             }
+
+            const scroll_obras = document.querySelector('.porfolio_obras');
+
+            // Adiciona um evento para rolar horizontalmente com a roda do mouse
+            scroll_obras.addEventListener('wheel', function(event) {
+                event.preventDefault();  // Impede a rolagem padrão (vertical)
+                
+                // Desloca horizontalmente com base no movimento vertical da roda
+                scroll_obras.scrollLeft += event.deltaY; 
+            });
         </script>
     </body>
 </html>

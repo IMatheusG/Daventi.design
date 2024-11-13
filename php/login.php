@@ -27,9 +27,10 @@
                             Bem vindo!
                         </h2>
                     </div>
-                    <p id="login_cta_p">                        
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim saepe voluptatem veniam consequuntur reiciendis doloribus explicabo voluptate. Incidunt fugiat assumenda voluptatibus quia ipsam odit magnam quae error, illo mollitia sint.
-                    </p>
+                    <div id="login_cta_p">                        
+                        <b>Para segurança de nosso site, as obras só estão acessiveis após a realização do login.</b>
+                        <b>Caso ainda não tenha uma conta, faça seu cadastro!</b>
+                    </div>
                     <div class="login_cta_cadastro_btn">
                         <a href="./cadastro.php">
                             <p>

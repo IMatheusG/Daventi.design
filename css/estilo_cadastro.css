@@ -123,8 +123,9 @@ input[type=submit] {
 }
 
 .cadastro_lado_direito .cadastro_voltar p {
-  width: 10vw;
-  margin-bottom: 0;
+  width: auto;
+  padding-right: 1vw;
+  padding-left: 1vw;
 }
 
 footer .opcoes {
