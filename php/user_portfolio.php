@@ -21,16 +21,16 @@
             FROM usuario u 
             INNER JOIN favorito f ON u.id_user  = f.user_id_favorito 
             INNER JOIN obra o ON f.obra_id_favorito = o.id_obra
-            WHERE u.id_user = $id_user;";
+            WHERE u.id_user = $id_user and f.status = 1;";
 
             $resultado_select_favorito = $mysqli->query($sql_select_favorito);
 
             while ($favorito = $resultado_select_favorito->fetch_assoc()){   
                 array_push($favorito_user, $favorito['obra_id_favorito']);                
             } 
-
             
             $_SESSION['favoritos_user'] = $favorito_user;
+
             // $a = $_SESSION['favoritos_user'];
             
             // echo "
@@ -103,7 +103,37 @@
                 </div>  
             </div>
         </main>
-        <form action="" class="modal_detalhes_obra" id="modal_exibicao">
+        <form action="" class="modal_detalhes_obra_vertical" id="modal_exibicao_vertical">
+            <div class="imagem_e_categoria_vertical">
+                <img src="../src/obras/ikigai.jpg" alt="" id="modal_imagem_vertical">
+                <div class="categoria_e_fav">
+                    <div class="p">
+                        Categoria: <b id="modal_tipo_vertical">Wallpaper</b>
+                    </div>
+                    <div class="favorito" onclick="verificarFavorito()">
+                        <img src="../src/coracao_off_icon.png" alt=""  id="fav_modal_vertical">
+                    </div>
+                </div>
+            </div>
+            <div class="titulo_e_descricao">
+                <div class="titulo_e_close_vertical">
+                    <h2 id="modal_titulo_vertical">
+                        Nome da obra
+                    </h2>
+                    <div class="close">
+                        <p onclick="fechar_detalhes_obra(document.getElementById('modal_exibicao_vertical'))">
+                            X
+                        </p>                        
+                    </div>
+                </div>
+                                    
+                <div class="descricao_obra">
+                    Descrição: <b id="modal_descricao_vertical"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti ab perferendis, nulla, voluptate unde tenetur illum harum quo atque eligendi enim nemo quas, praesentium officiis aspernatur corporis repellendus commodi. </b>                    
+                </div>
+            </div>
+        </form>
+        
+        <form action="" class="modal_detalhes_obra" id="modal_exibicao">            
             <div class="titulo_e_close" >
                 <h2 id="modal_titulo">
                     Nome da obra
@@ -123,7 +153,7 @@
                         <p>
                             Categoria: <b id="modal_tipo">Wallpaper</b>
                         </p>
-                        <div class="favorito" onclick="favoritarObra()">
+                        <div class="favorito" onclick="verificarFavorito()">
                             <img src="../src/coracao_off_icon.png" alt="" id="fav_modal">
                         </div>
                     </div>
@@ -132,7 +162,9 @@
                     Descrição: <b id="modal_descricao"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deserunt asperiores, aut praesentium odio beatae porro. Modi neque qui consequatur earum reiciendis est numquam dignissimos non atque quia. Praesentium, pariatur. </b>
                 </div>
             </div>
+            <div class="inputs_inativados" id="modal_id_obra"> </div>
         </form>
+
         <header>
             <h1>
                 Daventi
@@ -237,7 +269,13 @@
         </footer>   
         <form action=""> <!-- form pra enviar o filtro --> 
 
-        </form>              
+        </form> 
+                    
+        <form id="sql_favorito" action="./verificar_favorito.php" method="POST" class="inputs_inativados">
+            <input type="text" class="inputs_inativados" name="src_icon" id="src_fav_icon">
+            <input type="text" class="inputs_inativados" name="fav_id_obra" id="id_fav_obra">
+        </form>
+
         <script src="../js/guest_menu.js"></script>
         <script src="../js/user_porfolio.js"></script>        
         <script>
@@ -257,6 +295,8 @@
             ?>
 
             let obras = document.getElementById('obras_linha');
+
+            // Filtros + reescrita com consulta ordenada
             document.querySelectorAll('.radio_filtro').forEach(filtro => {                
                 filtro.addEventListener('click',function(){
                     let tipo_filtro = filtro.getAttribute('id');
@@ -279,7 +319,13 @@
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
 
-                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+                            <div class="inputs_inativados" id="id_user_<?php echo $obra['id_obra'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+
+                            <div class="inputs_inativados" id="obras_fav_<?php echo $obra['id_obra'] ?>"> <?php                                 
+                                foreach($_SESSION['favoritos_user'] as $favorito){
+                                    echo "'" . $favorito . "'";
+                                }
+                            ?> </div>
 
                             <?php 
                             }
@@ -304,8 +350,13 @@
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
 
-                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+                            <div class="inputs_inativados" id="id_user_<?php echo $obra['id_obra'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
 
+                            <div class="inputs_inativados" id="obras_fav_<?php echo $obra['id_obra'] ?>"> <?php                                 
+                                foreach($_SESSION['favoritos_user'] as $favorito){
+                                    echo "'" . $favorito . "'";
+                                }
+                            ?> </div>
                             <?php 
                             }
                             ?>
@@ -329,8 +380,13 @@
 
                             <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
 
-                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+                            <div class="inputs_inativados" id="id_user_<?php echo $obra['id_obra'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
 
+                            <div class="inputs_inativados" id="obras_fav_<?php echo $obra['id_obra'] ?>"> <?php                                 
+                                foreach($_SESSION['favoritos_user'] as $favorito){
+                                    echo "'" . $favorito . "'";
+                                }
+                            ?> </div>
                             
                             <?php 
                             }
@@ -353,10 +409,15 @@
 
                             <div class="inputs_inativados" id="descricao_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['descricao'] ?> </div>
 
-                            <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div> 
+                            <div class="inputs_inativados" id="tipo_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['tipo'] ?> </div>
 
-                            <div class="inputs_inativados" id="id_user_<?php echo $_SESSION['id_user'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
+                            <div class="inputs_inativados" id="id_user_<?php echo $obra['id_obra'] ?>"> <?php echo $_SESSION['id_user'] ?> </div>
 
+                            <div class="inputs_inativados" id="obras_fav_<?php echo $obra['id_obra'] ?>"> <?php                                 
+                                foreach($_SESSION['favoritos_user'] as $favorito){
+                                    echo "'" . $favorito . "'";
+                                }
+                            ?> </div>
                             
                             <?php 
                             }
@@ -393,8 +454,10 @@
             function click_abrir_modal_horizontal(){
                 document.querySelectorAll('.obra_horizontal').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    abrir_detalhes_obra(document.getElementById('modal_exibicao'));                    
+                    console.log("horizontal teste");
+                    
                     let id = obra.getAttribute('data_id');
+                    abrir_detalhes_obra(document.getElementById('modal_exibicao'), id);                    
                     let titulo = document.getElementById(`nome_obra_${id}`).textContent;
                     let imagem = document.getElementById(`imagem_obra_${id}`).textContent;
                     let descricao = document.getElementById(`descricao_obra_${id}`).textContent;
@@ -404,15 +467,19 @@
                     document.getElementById('modal_imagem').setAttribute('src',imagem);
                     document.getElementById('modal_descricao').textContent = descricao;
                     document.getElementById('modal_tipo').textContent = tipo;
-                    
+                    document.getElementById('modal_id_obra').textContent = id;
+
                     // alterando icon do fav de acordo com as obras favoritadas
                     fav_icon = document.getElementById('fav_modal');                   
-                    console.log('id:  ', id) ;
+                    // console.log('id:  ', id) ;
                     let id_user = document.getElementById(`id_user_${id}`).textContent;
+                    // console.log('id user: ',id_user);
+                    // console.log('id obra: ',id);
                     let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
-                    
+
                     favoritos = [...new Set(favoritos)]; // excluindo duplicatas
-                    
+                    // console.log('favoritos: ', favoritos);
+
                     // console.log(favoritos);                    
                     // console.log(id);
                     
@@ -422,34 +489,39 @@
                         fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
                     }
                     
+                    console.log('id obra: ', id);
                     })
                 })
             }
             function click_abrir_modal_vertical(){
                 document.querySelectorAll('.obra_vertical').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    abrir_detalhes_obra(document.getElementById('modal_exibicao'));                    
+                    console.log("vertical teste");
+                                        
                     let id = obra.getAttribute('data_id');
+                    abrir_detalhes_obra(document.getElementById('modal_exibicao_vertical'), id);
                     let titulo = document.getElementById(`nome_obra_${id}`).textContent;
                     let imagem = document.getElementById(`imagem_obra_${id}`).textContent;
                     let descricao = document.getElementById(`descricao_obra_${id}`).textContent;
                     let tipo = document.getElementById(`tipo_obra_${id}`).textContent;
 
-                    document.getElementById('modal_titulo').textContent = titulo;
-                    document.getElementById('modal_imagem').setAttribute('src',imagem);
-                    document.getElementById('modal_descricao').textContent = descricao;
-                    document.getElementById('modal_tipo').textContent = tipo;
+                    document.getElementById('modal_titulo_vertical').textContent = titulo;
+                    document.getElementById('modal_imagem_vertical').setAttribute('src',imagem);
+                    document.getElementById('modal_descricao_vertical').textContent = descricao;
+                    document.getElementById('modal_tipo_vertical').textContent = tipo;
+                    document.getElementById('modal_id_obra').textContent = id;
 
                     // alterando icon do fav de acordo com as obras favoritadas
-                    fav_icon = document.getElementById('fav_modal');     
-                    console.log('id:  ', id) ;
-               
+                    fav_icon = document.getElementById('fav_modal_vertical');                   
+                    // console.log('id:  ', id) ;
                     let id_user = document.getElementById(`id_user_${id}`).textContent;
-                    console.log('id_user:  ', id_user) ;
+                    // console.log('id user: ',id_user);
+                    // console.log('id obra: ',id);
                     let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
-                    
+
                     favoritos = [...new Set(favoritos)]; // excluindo duplicatas
-                    
+                    // console.log('favoritos: ', favoritos);
+
                     // console.log(favoritos);                    
                     // console.log(id);
                     
@@ -458,42 +530,102 @@
                     } else {                            
                         fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
                     }
+                    console.log('id obra: ', id);
                     })
                 })
             }
             
+            function verificarFavorito(){
+                const dataAtual = new Date();
+
+                // Formata como YYYY-MM-DD
+                const ano = dataAtual.getFullYear();
+                const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // Adiciona 1 ao mês (0 a 11) e preenche com zero à esquerda
+                const dia = String(dataAtual.getDate()).padStart(2, '0');
+
+                const dataFormatada = `${ano}-${mes}-${dia}`;
+
+                let form_fav = document.getElementById('sql_favorito');
+
+                let fav = document.querySelector('#fav_modal');
+                let src = fav.getAttribute('src');
+                let id_obra = document.getElementById('modal_id_obra').textContent;
+
+                
+                document.getElementById('id_fav_obra').value = id_obra;                
+                // let a = document.getElementById('id_fav_obra').textContent;
+                // console.log('asdsadasdqweqw: ', a);
+                document.getElementById('src_fav_icon').value = src;
+
+                form_fav.submit();
+                // form_fav.submit();
+                // if (src == '../src/coracao_icon.png'){
+                //     console.log('id obra: ', id_obra);
+                //     document.querySelector('#sql_favorito').innerHTML = `
+                       
+                //     `;                    
+                // }
+            }
             
+            
+            // else if (fav.getAttribute('src') == '../src/coracao_off_icon.png'){
+            //                                                   
+            //         $sql_desfavoritar = "UPDATE favoritos SET obra_id_favorito = 0 WHERE user_id_favorito = $id_user";
+            //         $mysqli->query($sql_desfavoritar);
+            //         header('Location: ./user_portfolio.php?status=sucesso_desfavoritar');
+            //                                             
+            // }
+
             // Modal base
             document.querySelectorAll('.obra').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    abrir_detalhes_obra(document.getElementById('modal_exibicao'));                    
+                    console.log("aaa");
+                    // abrir_detalhes_obra(document.getElementById('modal_exibicao'));                    
                     let id = obra.getAttribute('data_id');
+                    let posicao = document.getElementById(`posicao_obra_${id}`).textContent.trim();
                     let titulo = document.getElementById(`nome_obra_${id}`).textContent;
                     let imagem = document.getElementById(`imagem_obra_${id}`).textContent;
                     let descricao = document.getElementById(`descricao_obra_${id}`).textContent;
                     let tipo = document.getElementById(`tipo_obra_${id}`).textContent;
 
-                    document.getElementById('modal_titulo').textContent = titulo;
-                    document.getElementById('modal_imagem').setAttribute('src',imagem);
-                    document.getElementById('modal_descricao').textContent = descricao;
-                    document.getElementById('modal_tipo').textContent = tipo;
+                    // console.log(string(posicao));
+                    if (posicao == 'horizontal'){
+                        document.getElementById('modal_titulo').textContent = titulo;
+                        document.getElementById('modal_imagem').setAttribute('src',imagem);
+                        document.getElementById('modal_descricao').textContent = descricao;
+                        document.getElementById('modal_tipo').textContent = tipo;
+                        abrir_detalhes_obra(document.getElementById('modal_exibicao'), id);      
+                        document.getElementById('modal_id_obra').textContent = id;
+                    } else {
+                        document.getElementById('modal_titulo_vertical').textContent = titulo;
+                        document.getElementById('modal_imagem_vertical').setAttribute('src',imagem);
+                        document.getElementById('modal_descricao_vertical').textContent = descricao;
+                        document.getElementById('modal_tipo_vertical').textContent = tipo;
+                        abrir_detalhes_obra(document.getElementById('modal_exibicao_vertical'), id);      
+                        document.getElementById('modal_id_obra').textContent = id;
+                    }
+
+                    
 
 
                     // alterando icon do fav de acordo com as obras favoritadas
-                    fav_icon = document.getElementById('fav_modal');                    
-                    let id_user = document.getElementById(`id_user_${id}`).textContent;
-                    let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
+                    // fav_icon = document.getElementById('fav_modal');                    
+                    // fav_icon_vertical = document.getElementById('fav_modal_vertical');  
+                    // let id_user = document.getElementById(`id_user_${id}`).textContent;
+                    // let obras_favoritadas = document.getElementById(`obras_fav_${id}`).textContent;
                     
-                    favoritos = [...new Set(favoritos)]; // excluindo duplicatas
+                    // favoritos = [...new Set(favoritos)]; // excluindo duplicatas
                     
-                    // console.log(favoritos);                    
-                    // console.log(id);
+                    // // console.log(favoritos);                    
+                    // // console.log(id);
                     
-                    if (favoritos.includes(Number(id))) {
-                        fav_icon.setAttribute('src', '../src/coracao_icon.png');    
-                    } else {                            
-                        fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
-                    }
+                    // if (favoritos.includes(Number(id))) {
+                    //     fav_icon.setAttribute('src', '../src/coracao_icon.png');    
+                    //     fav_icon_vertical.setAttribute('src', '../src/coracao_icon.png');    
+                    // } else {                            
+                    //     fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
+                    //     fav_icon_vertical.setAttribute('src', '../src/coracao_off_icon.png');    
+                    // }
                 })
             })
             
@@ -521,7 +653,19 @@
             linha_obras.style.gridTemplateColumns = novo_valor_grid_template;
 
             
-  
+            const parametros = new URLSearchParams(window.location.search);
+            if (parametros.has('status')){
+                const status = parametros.get('status');
+                
+                if (status === 'sucesso_desfavoritar'){
+                    alert('Obra desfavoritada com sucesso');
+                } else if (status === 'sucesso_favoritar'){
+                    alert('Obra favoritada com sucesso');
+                } 
+
+                const newUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
         </script>
     </body>
 </html>

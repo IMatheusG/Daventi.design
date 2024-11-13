@@ -217,4 +217,82 @@ input[type=radio]:checked + label {
 label:hover {
   border-bottom: 0.15vw solid #8BCCC1;
   color: white;
+}
+
+.inputs_inativados {
+  visibility: hidden;
+  display: none;
+}
+
+.modal_detalhes_obra_vertical {
+  visibility: hidden;
+  width: 60%;
+  height: 38vw;
+  position: fixed;
+  top: 9vw;
+  left: 20%;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  background-color: #233431;
+  border: 1vw solid #8BCCC1;
+  padding: 2vw;
+  border-radius: 15px;
+  gap: 2vw;
+}
+
+.modal_detalhes_obra_vertical img {
+  width: 100%;
+  height: 100%;
+}
+
+.imagem_e_categoria_vertical {
+  display: grid;
+  grid-template-rows: 27.5vw 5vw;
+}
+
+.categoria_e_fav {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
+  padding-top: 0.5vw;
+  align-items: center;
+}
+
+#fav_modal_vertical {
+  width: 80%;
+  height: 80%;
+}
+
+.titulo_e_descricao {
+  display: grid;
+  grid-template-rows: 7vw 1fr;
+}
+
+.titulo_e_close_vertical {
+  display: grid;
+  grid-template-columns: 1fr 5vw;
+}
+
+.descricao_obra {
+  max-height: 15vw;
+  overflow-y: auto;
+}
+
+.titulo_e_close_vertical .close p {
+  font-size: 3.5vw;
+  padding: 0.5vw;
+  padding-right: 0px;
+  width: 3.5vw;
+  border-radius: 15px;
+  margin-left: 2vw;
+  margin-top: -1vw;
+}
+
+.titulo_e_close_vertical .close p:hover {
+  background-color: #8BCCC1;
+}
+
+.titulo_e_close_vertical h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=estilo_user_portfolio.css.map */

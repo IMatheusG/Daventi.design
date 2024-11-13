@@ -3,8 +3,8 @@ const body = document.getElementById('body');
 const main = document.getElementById('main_portfolio');
 
 //editAberto.style.visibility = 'hidden';
-function abrir_detalhes_obra(editAberto) {
-    
+function abrir_detalhes_obra(editAberto, id) {
+    console.log(editAberto.className);    
     const animationOn = 'slideIn_obra 1.2s forwards'; // Using camelCase for CSS property
     const animationOn_main = 'opacityOff 1.2s forwards';
     const edit_closed = !editAberto.style.visibility || editAberto.style.visibility === 'hidden';  // Check for open state
@@ -18,6 +18,24 @@ function abrir_detalhes_obra(editAberto) {
         editAberto.style.visibility = 'hidden';           // Set width to 0 for closing
         editAberto.style.animation = 'none';      // Remove animation on closing
         main.style.animation = 'none';
+    }
+
+    if (editAberto.className == 'modal_detalhes_obra'){     
+        fav_icon = document.getElementById('fav_modal');                          
+    } else if (editAberto.className == 'modal_detalhes_obra_vertical'){
+        fav_icon = document.getElementById('fav_modal_vertical');                          
+    }
+    
+    favoritos = [...new Set(favoritos)]; // excluindo duplicatas
+    // console.log('favoritos: ', favoritos);
+
+    // console.log(favoritos);                    
+    // console.log(id);
+    
+    if (favoritos.includes(Number(id))) {
+        fav_icon.setAttribute('src', '../src/coracao_icon.png');    
+    } else {                            
+        fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
     }
     //console.log('test');
 }
