@@ -4,7 +4,7 @@ const main = document.getElementById('main_portfolio');
 
 //editAberto.style.visibility = 'hidden';
 function abrir_detalhes_obra(editAberto, id) {
-    console.log(editAberto.className);    
+    // console.log(editAberto.className);    
     const animationOn = 'slideIn_obra 1.2s forwards'; // Using camelCase for CSS property
     const animationOn_main = 'opacityOff 1.2s forwards';
     const edit_closed = !editAberto.style.visibility || editAberto.style.visibility === 'hidden';  // Check for open state
@@ -56,7 +56,6 @@ function fechar_detalhes_obra(editAberto) {
         main.style.animation = animationOff_main;
         body.style.overflowY = 'visible';
     }
-
 }
 
 

@@ -9,6 +9,7 @@
         include('conexao.php');
 
         if ($error)
+            // echo $error;
             header("Location: adm_obras.php?status=erro_enviar_arquivo");
 
         $pasta = '/arquivos'; // path

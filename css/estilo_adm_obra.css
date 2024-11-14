@@ -47,7 +47,7 @@ a {
 .adm_obras_obra_vertical {
   width: 100%;
   display: grid;
-  grid-template-columns: 18vw 15vw;
+  grid-template-columns: 18vw 20vw;
   background-color: #233431;
   padding: 2vw;
   border-radius: 25px;
@@ -547,4 +547,8 @@ input[type=submit]:hover {
   display: grid;
   grid-template-columns: 1fr 8vw;
   align-items: center;
+}
+
+#adicionar_obra {
+  width: auto;
 }/*# sourceMappingURL=estilo_adm_obra.css.map */

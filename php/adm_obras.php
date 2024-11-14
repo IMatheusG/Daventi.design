@@ -275,7 +275,7 @@
                     </div>
                 </div>                
                 <script src="../js/adm_adicionar_obra.js"></script>
-                <div class="inativar" onclick="adicionarObra()">
+                <div class="inativar" onclick="adicionarObra()" id="adicionar_obra">
                     Adicionar
                 </div>
             </div>            
@@ -396,7 +396,7 @@
                         tamanho_obras.push('67vw'); // 64vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
                     } else if (posicaoObra2 == 'vertical'){
-                        tamanho_obras.push('38vw'); // 38vw
+                        tamanho_obras.push('43vw'); // 38vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_vertical';
                     }
 
@@ -446,7 +446,7 @@
                         tamanho_obras_inativas.push('67vw'); // 64vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_horizontal';
                     } else if (posicaoObra2 == 'vertical'){
-                        tamanho_obras_inativas.push('38vw'); // 38vw
+                        tamanho_obras_inativas.push('43vw'); // 38vw
                         document.querySelector(`#adm_obras_obra_id_${data_id}`).className = 'adm_obras_obra_vertical';
                     }
 
@@ -542,5 +542,22 @@
                 window.history.replaceState({}, document.title, newUrl);
             }
         }
+
+        let scroll_obras = document.getElementById('adm_obras_linha_obras_ativas');
+        let scroll_obras_inativas = document.getElementById('adm_obras_linha_obras_inativas');
+        // Adiciona um evento para rolar horizontalmente com a roda do mouse
+        scroll_obras.addEventListener('wheel', function(event) {
+            event.preventDefault();  // Impede a rolagem padrão (vertical)
+            
+            // Desloca horizontalmente com base no movimento vertical da roda
+            scroll_obras.scrollLeft += event.deltaY; 
+        });
+
+        scroll_obras_inativas.addEventListener('wheel', function(event) {
+            event.preventDefault();  // Impede a rolagem padrão (vertical)
+            
+            // Desloca horizontalmente com base no movimento vertical da roda
+            scroll_obras_inativas.scrollLeft += event.deltaY; 
+        });
     </script>
 </html>

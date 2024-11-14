@@ -5,7 +5,7 @@
     $id_obra = $_POST['fav_id_obra'];
     $id_user = $_SESSION['id_user'];
 
-    $sql_consulta_favorito = "SELECT * FROM favorito;";
+    $sql_consulta_favorito = "SELECT * FROM favorito WHERE user_id_favorito = $id_user;";
     $resultado_favorito = $mysqli->query($sql_consulta_favorito);
 
     // echo 'user: ', $id_user, '<br>';
@@ -19,15 +19,21 @@
             $id_favorito = $favorito['id_favorito'];
             // echo $id_favorito;
             $sql_desfavoritar = "UPDATE favorito SET status = 0 WHERE id_favorito = $id_favorito;";
-            $mysqli->query($sql_desfavoritar);
-            header("Location: ./user_portfolio.php?status=sucesso_desfavoritar");
-            $fav_alterado = true;
+            $resultado_query = $mysqli->query($sql_desfavoritar);
+            $mysqli->query("UPDATE obra set favoritos = favoritos - 1 WHERE id_obra = $id_obra;");
+            if ($resultado_query){
+                header("Location: ./user_portfolio.php?status=sucesso_desfavoritar");
+                $fav_alterado = true;
+            }
         } else if ($id_obra == $favorito['obra_id_favorito'] && $favorito['status'] == 0) { // favoritar
             $id_favorito = $favorito['id_favorito'];
             $sql_favoritar = "UPDATE favorito SET status = 1 WHERE id_favorito = $id_favorito;";
-            $mysqli->query($sql_favoritar);
-            $fav_alterado = true;
-            header("Location: ./user_portfolio.php?status=sucesso_favoritar");
+            $resultado_query = $mysqli->query($sql_favoritar);
+            $mysqli->query("UPDATE obra set favoritos = favoritos + 1 WHERE id_obra = $id_obra;");
+            if ($resultado_query){
+                $fav_alterado = true;
+                header("Location: ./user_portfolio.php?status=sucesso_favoritar");
+            }            
         }
     }
 
@@ -35,6 +41,7 @@
         $sql_insert_fav = "INSERT INTO favorito (data_favorito, user_id_favorito, obra_id_favorito, status) values (CURDATE(), $id_user, $id_obra, 1);";
         
         $mysqli->query($sql_insert_fav);
+        $mysqli->query("UPDATE obra set favoritos = favoritos + 1 WHERE id_obra = $id_obra;");
         header("Location: ./user_portfolio.php?status=sucesso_favoritar");
     }
 

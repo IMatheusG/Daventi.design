@@ -74,7 +74,7 @@
                         while ($obra = $resultado_nenhum->fetch_assoc()){
                         
                     ?>
-                    <div class="obra" id="obra_<?php echo $obra['id_obra'] ?>" data_id="<?php echo $obra['id_obra']?>"> 
+                    <div class="obra" id="obra_<?php echo $obra['id_obra'] ?>" data_id="<?php echo $obra['id_obra']?>" onclick="adicionarVisualizacao(<?php echo $obra['id_obra']?>)"> 
                         <img src="<?php echo $obra['imagem'] ?>" alt="">
                     </div> 
                     <div class="inputs_inativados" id="posicao_obra_<?php echo $obra['id_obra'] ?>"> <?php echo $obra['posicao'] ?> </div>
@@ -454,7 +454,7 @@
             function click_abrir_modal_horizontal(){
                 document.querySelectorAll('.obra_horizontal').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    console.log("horizontal teste");
+                    // console.log("horizontal teste");
                     
                     let id = obra.getAttribute('data_id');
                     abrir_detalhes_obra(document.getElementById('modal_exibicao'), id);                    
@@ -489,14 +489,14 @@
                         fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
                     }
                     
-                    console.log('id obra: ', id);
+                    // console.log('id obra: ', id);
                     })
                 })
             }
             function click_abrir_modal_vertical(){
                 document.querySelectorAll('.obra_vertical').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    console.log("vertical teste");
+                    // console.log("vertical teste");
                                         
                     let id = obra.getAttribute('data_id');
                     abrir_detalhes_obra(document.getElementById('modal_exibicao_vertical'), id);
@@ -530,7 +530,7 @@
                     } else {                            
                         fav_icon.setAttribute('src', '../src/coracao_off_icon.png');
                     }
-                    console.log('id obra: ', id);
+                    // console.log('id obra: ', id);
                     })
                 })
             }
@@ -579,7 +579,7 @@
             // Modal base
             document.querySelectorAll('.obra').forEach(obra => {
                 obra.addEventListener('click', function(){
-                    console.log("aaa");
+                    // console.log("aaa");
                     // abrir_detalhes_obra(document.getElementById('modal_exibicao'));                    
                     let id = obra.getAttribute('data_id');
                     let posicao = document.getElementById(`posicao_obra_${id}`).textContent.trim();
@@ -676,6 +676,21 @@
                 // Desloca horizontalmente com base no movimento vertical da roda
                 scroll_obras.scrollLeft += event.deltaY; 
             });
+
+            function adicionarVisualizacao(itemId) {
+                // Extrair apenas o número do ID (supondo que o id do elemento HTML seja, por exemplo, 'item_123')
+                const id = itemId;
+
+                fetch('adicionar_visualizacao.php', {
+                    method: 'POST',
+                    body: JSON.stringify({ id: id }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }) 
+            }
+
+            
         </script>
     </body>
 </html>
