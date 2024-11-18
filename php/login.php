@@ -79,10 +79,9 @@
                     <p>
                         Conecte-se conosco
                     </p>
-                    <div class="redes_imgs">
-                        <img src="../src/instagram_icon.png">
+                    <a class="redes_imgs" href="https://ko-fi.com/daventishop">
                         <img src="../src/kofi_icon.png" id="kofi">
-                    </div>                    
+                    </a>                           
                 </div>                
             </div>
             <div class="copyright">

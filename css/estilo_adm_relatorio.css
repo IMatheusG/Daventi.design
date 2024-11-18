@@ -8,7 +8,7 @@ a {
 }
 
 #guest_menu_aberto {
-  grid-template-rows: 6vw repeat(4, 1fr);
+  grid-template-rows: 6vw repeat(3, 1fr);
 }
 
 #main_relatorio {

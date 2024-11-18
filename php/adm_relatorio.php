@@ -164,14 +164,7 @@
                     <p onclick="fecharMenu()">
                         x
                     </p>
-                </div>
-                <div class="guest_op_menu"> 
-                    <a href="./adm_clientes.html" onclick="fecharMenu()">
-                        <h2>
-                            Clientes
-                        </h2>      
-                    </a>              
-                </div>
+                </div> 
                 <div class="guest_op_menu">
                     <a href="./adm_obras.php" onclick="fecharMenu()">
                         <h2>
@@ -211,12 +204,7 @@
                     </div>
                 </div>
                 <div class="navegacao">
-                    <ul> <h2> Navegação </h2> </ul>
-                    <ul> 
-                        <a href="adm_clientes.php">
-                            Clientes
-                        </a>    
-                    </ul>
+                    <ul> <h2> Navegação </h2> </ul>                    
                     <ul>
                         <a href="adm_obras.php">
                             Obras
