@@ -309,4 +309,11 @@ p {
   border-radius: 25px;
   padding: 2.4vw;
   text-align: center;
+}
+
+#guest_fechar_menu p {
+  padding: 2.8vw;
+  padding-top: 2vw;
+  padding-bottom: 3.5vw;
+  padding-right: 3.5vw;
 }/*# sourceMappingURL=estilo_guest.css.map */
